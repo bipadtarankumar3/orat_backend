@@ -39,6 +39,20 @@
     <link rel="stylesheet" href="{{ URL::to('public/assets/admin/vendor/libs/typeahead-js/typeahead.css')}}" /> 
     <link rel="stylesheet" href="{{ URL::to('public/assets/admin/vendor/libs/apex-charts/apex-charts.css')}}" />
 
+    <link rel="stylesheet" href="{{ URL::to('public/assets/admin/vendor/libs/quill/typography.css')}}">
+    <link rel="stylesheet" href="{{ URL::to('public/assets/admin/vendor/libs/quill/katex.css')}}">
+    <link rel="stylesheet" href="{{ URL::to('public/assets/admin/vendor/libs/quill/editor.css')}}">
+    <link rel="stylesheet" href="{{ URL::to('public/assets/admin/vendor/libs/dropzone/dropzone.css')}}">
+    <link rel="stylesheet" href="{{ URL::to('public/assets/admin/vendor/libs/flatpickr/flatpickr.css')}}">
+    <link rel="stylesheet" href="{{ URL::to('public/assets/admin/vendor/libs/tagify/tagify.css')}}" />
+
+
+    <link rel="stylesheet" href="{{ URL::to('public/assets/admin/vendor/libs/datatables-bs5/datatables.bootstrap5.css')}}" />
+    <link rel="stylesheet" href="{{ URL::to('public/assets/admin/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css')}}" />
+    <link rel="stylesheet" href="{{ URL::to('public/assets/admin/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css')}}" />
+    <link rel="stylesheet" href="{{ URL::to('public/assets/admin/vendor/libs/select2/select2.css')}}">
+
+
     <!-- Page CSS -->
     <link rel="stylesheet" href="{{ URL::to('public/assets/admin/vendor/css/pages/card-analytics.css')}}" />
 
@@ -119,12 +133,43 @@
   <!-- Vendors JS -->
   <script src="{{ URL::to('public/assets/admin/vendor/libs/apex-charts/apexcharts.js')}}"></script>
 
+
+
+    <script src="{{ URL::to('public/assets/admin/vendor/libs/datatables-bs5/datatables-bootstrap5.js')}}"></script>
+    <script src="{{ URL::to('public/assets/admin/vendor/libs/select2/select2.js')}}"></script>
+
+    <script src="{{ URL::to('public/assets/admin/vendor/libs/quill/katex.js')}}"></script>
+    <script src="{{ URL::to('public/assets/admin/vendor/libs/quill/quill.js')}}"></script>
+    <script src="{{ URL::to('public/assets/admin/vendor/libs/dropzone/dropzone.js')}}"></script>
+    <script src="{{ URL::to('public/assets/admin/vendor/libs/jquery-repeater/jquery-repeater.js')}}"></script>
+    <script src="{{ URL::to('public/assets/admin/vendor/libs/flatpickr/flatpickr.js')}}"></script>
+    <script src="{{ URL::to('public/assets/admin/vendor/libs/tagify/tagify.js')}}"></script>
+
+
+
   <!-- Main JS -->
   <script src="{{ URL::to('public/assets/admin/js/main.js')}}"></script>
   
 
   <!-- Page JS -->
   <script src="{{ URL::to('public/assets/admin/js/app-ecommerce-dashboard.js')}}"></script>
+  <script src="{{ URL::to('public/assets/admin/js/app-ecommerce-product-list.js')}}"></script>
+  <script src="{{ URL::to('public/assets/admin/js/app-ecommerce-product-add.js')}}"></script>
+  <script src="{{ URL::to('public/assets/admin/js/app-ecommerce-customer-all.js')}}"></script>
+  <script src="{{ URL::to('public/assets/admin/js/app-ecommerce-order-list.js')}}"></script>
+  <script src="{{ URL::to('public/assets/admin/js/app-ecommerce-customer-all.js')}}"></script>
+
+  <script src="{{ URL::to('public/assets/admin/js/app-ecommerce-order-details.js')}}"></script>
+  <script src="{{ URL::to('public/assets/admin/js/modal-add-new-address.js')}}"></script>
+  <script src="{{ URL::to('public/assets/admin/js/modal-edit-user.js')}}"></script>
+
+  <script src="{{ URL::to('public/assets/admin/js/app-ecommerce-reviews.js')}}"></script>
+  <script src="{{ URL::to('public/assets/admin/js/extended-ui-star-ratings.js')}}"></script>
+  
+
+  <script>
+
+  </script>
   
 </body>
 
