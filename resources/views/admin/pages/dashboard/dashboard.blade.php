@@ -12,14 +12,14 @@
               <h6 class="card-title mb-1 text-nowrap">Congratulations Katie!</h6>
               <small class="d-block mb-3 text-nowrap">Best seller of the month</small>
 
-              <h5 class="card-title text-primary mb-1">$48.9k</h5>
+              <h5 class="card-title text-primary mb-1">₹48.9k</h5>
               <small class="d-block mb-4 pb-1 text-muted">78% of target</small>
 
               <a href="javascript:;" class="btn btn-sm btn-primary">View sales</a>
           </div>
           </div>
           <div class="col-4 pt-3 ps-0">
-          <img src="../../assets/img/illustrations/prize-light.png" width="90" height="140" class="rounded-start" alt="View Sales">
+          <img src="{{URL::to('public/assets/admin/img/illustrations/prize-light.png')}}" width="90" height="140" class="rounded-start" alt="View Sales">
           </div>
       </div>
       </div>
@@ -66,7 +66,7 @@
           <div class="card-body">
               <div class="card-title d-flex align-items-start justify-content-between">
               <div class="avatar flex-shrink-0">
-                  <img src="../../assets/img/icons/unicons/wallet-info.png" alt="Credit Card" class="rounded">
+                  <img src="{{URL::to('public/assets/admin/img/icons/unicons/wallet-info.png')}}" alt="Credit Card" class="rounded">
               </div>
               <div class="dropdown">
                   <button class="btn p-0" type="button" id="cardOpt6" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -79,7 +79,7 @@
               </div>
               </div>
               <span class="d-block">Sales</span>
-              <h4 class="card-title mb-1">$4,679</h4>
+              <h4 class="card-title mb-1">₹4,679</h4>
               <small class="text-success fw-medium"><i class='bx bx-up-arrow-alt'></i> +28.42%</small>
           </div>
           </div>
@@ -100,7 +100,7 @@
           </div>
           <div id="expensesChart" class="mb-2"></div>
           <div class="p-3 pt-2">
-              <small class="text-muted d-block text-center">$21k Expenses more than last month</small>
+              <small class="text-muted d-block text-center">₹21k Expenses more than last month</small>
           </div>
           </div>
       </div>
@@ -109,7 +109,7 @@
           <div class="card-body">
               <div class="card-title d-flex align-items-start justify-content-between">
               <div class="avatar flex-shrink-0">
-                  <img src="../../assets/img/icons/unicons/briefcase.png" alt="Credit Card" class="rounded">
+                  <img src="{{URL::to('public/assets/admin/img/icons/unicons/briefcase.png')}}" alt="Credit Card" class="rounded">
               </div>
               <div class="dropdown">
                   <button class="btn p-0" type="button" id="cardOpt1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -122,7 +122,7 @@
               </div>
               </div>
               <span class="d-block">Transactions</span>
-              <h4 class="card-title mb-1">$14,857</h4>
+              <h4 class="card-title mb-1">₹14,857</h4>
               <small class="text-success fw-medium"><i class='bx bx-up-arrow-alt'></i> +28.14%</small>
           </div>
           </div>
@@ -147,7 +147,7 @@
           <div class="card-header d-flex justify-content-between">
               <div>
               <h5 class="card-title mb-0">Report</h5>
-              <small class="card-subtitle">Monthly Avg. $45.578k</small>
+              <small class="card-subtitle">Monthly Avg. ₹45.578k</small>
               </div>
               <div class="dropdown">
               <button class="btn p-0" type="button" id="totalIncome" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -170,7 +170,7 @@
                   <div class="d-flex justify-content-between align-items-end w-100 flex-wrap gap-2">
                       <div class="d-flex flex-column">
                       <span>Income</span>
-                      <h5 class="mb-0">$42,845</h5>
+                      <h5 class="mb-0">₹42,845</h5>
                       </div>
                       <small class="text-success">+2.34k</small>
                   </div>
@@ -184,7 +184,7 @@
                   <div class="d-flex justify-content-between align-items-end w-100 flex-wrap gap-2">
                       <div class="d-flex flex-column">
                       <span>Expense</span>
-                      <h5 class="mb-0">$38,658</h5>
+                      <h5 class="mb-0">₹38,658</h5>
                       </div>
                       <small class="text-danger">-1.15k</small>
                   </div>
@@ -198,7 +198,7 @@
                   <div class="d-flex justify-content-between align-items-end w-100 flex-wrap gap-2">
                       <div class="d-flex flex-column">
                       <span>Profit</span>
-                      <h5 class="mb-0">$18,220</h5>
+                      <h5 class="mb-0">₹18,220</h5>
                       </div>
                       <small class="text-success">+1.35k</small>
                   </div>
@@ -233,7 +233,7 @@
       <div class="card-body">
           <div class="row">
           <div class="col-6">
-              <small>Earnings: <span class="fw-medium">$846.17</span></small>
+              <small>Earnings: <span class="fw-medium">₹846.17</span></small>
           </div>
           <div class="col-6">
               <small>Sales: <span class="fw-medium">25.7M</span></small>
@@ -333,7 +333,7 @@
           <div class="card-body">
               <div class="card-title d-flex align-items-start justify-content-between">
               <div class="avatar flex-shrink-0">
-                  <img src="../../assets/img/icons/unicons/cc-warning.png" alt="Credit Card" class="rounded">
+                  <img src="{{URL::to('public/assets/admin/img/icons/unicons/cc-warning.png')}}" alt="Credit Card" class="rounded">
               </div>
               <div class="dropdown">
                   <button class="btn p-0" type="button" id="cardOpt5" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -346,7 +346,7 @@
               </div>
               </div>
               <span class="d-block mb-1">Revenue</span>
-              <h3 class="card-title text-nowrap mb-2">$42,389</h3>
+              <h3 class="card-title text-nowrap mb-2">₹42,389</h3>
               <small class="text-success fw-medium"><i class='bx bx-up-arrow-alt'></i> +52.18%</small>
           </div>
           </div>
@@ -377,7 +377,7 @@
                   </div>
                   <div class="d-flex justify-content-between">
                   <div class="mt-auto">
-                      <h3 class="mb-2">$84.7k</h3>
+                      <h3 class="mb-2">₹84.7k</h3>
                       <small class="text-danger text-nowrap fw-medium"><i class='bx bx-down-arrow-alt'></i> 8.2%</small>
                   </div>
                   </div>
@@ -407,7 +407,7 @@
               <tr>
               <td>
                   <div class="d-flex align-items-center">
-                  <img src="../../assets/img/products/oneplus-lg.png" alt="Oneplus" height="32" width="32" class="me-2">
+                  <img src="{{URL::to('public/assets/admin/img/products/oneplus-lg.png')}}" alt="Oneplus" height="32" width="32" class="me-2">
                   <div class="d-flex flex-column">
                       <span class="fw-medium lh-1">OnePlus 7Pro</span>
                       <small class="text-muted">OnePlus</small>
@@ -416,7 +416,7 @@
               </td>
               <td><span class="badge bg-label-primary rounded-pill badge-center p-3 me-2"><i class="bx bx-mobile-alt bx-xs"></i></span> Smart Phone</td>
               <td>
-                  <div class="text-muted lh-1"><span class="text-primary fw-medium">$120</span>/499</div>
+                  <div class="text-muted lh-1"><span class="text-primary fw-medium">₹120</span>/499</div>
                   <small class="text-muted">Partially Paid</small>
               </td>
               <td><span class="badge bg-label-primary">Confirmed</span></td>
@@ -433,7 +433,7 @@
               <tr>
               <td>
                   <div class="d-flex align-items-center">
-                  <img src="../../assets/img/products/magic-mouse.png" alt="Apple" height="32" width="32" class="me-2">
+                  <img src="{{URL::to('public/assets/admin/img/products/magic-mouse.png')}}" alt="Apple" height="32" width="32" class="me-2">
                   <div class="d-flex flex-column">
                       <span class="fw-medium lh-1">Magic Mouse</span>
                       <small class="text-muted">Apple</small>
@@ -442,7 +442,7 @@
               </td>
               <td><span class="badge bg-label-warning rounded-pill badge-center p-3 me-2"><i class="bx bx-mouse bx-xs"></i></span> Mouse</td>
               <td>
-                  <div class="lh-1"><span class="text-primary fw-medium">$149</span></div>
+                  <div class="lh-1"><span class="text-primary fw-medium">₹149</span></div>
                   <small class="text-muted">Fully Paid</small>
               </td>
               <td><span class="badge bg-label-success">Completed</span></td>
@@ -459,7 +459,7 @@
               <tr>
               <td>
                   <div class="d-flex align-items-center">
-                  <img src="../../assets/img/products/imac-pro.png" alt="Apple" height="32" width="32" class="me-2">
+                  <img src="{{URL::to('public/assets/admin/img/products/imac-pro.png')}}" alt="Apple" height="32" width="32" class="me-2">
                   <div class="d-flex flex-column">
                       <span class="fw-medium lh-1">iMac Pro</span>
                       <small class="text-muted">Apple</small>
@@ -468,7 +468,7 @@
               </td>
               <td><span class="badge bg-label-info rounded-pill badge-center p-3 me-2"><i class="bx bx-desktop bx-xs"></i></span> Computer</td>
               <td>
-                  <div class="text-muted lh-1"><span class="text-primary fw-medium">$0</span>/899</div>
+                  <div class="text-muted lh-1"><span class="text-primary fw-medium">₹0</span>/899</div>
                   <small class="text-muted">Unpaid</small>
               </td>
               <td><span class="badge bg-label-danger">Cancelled</span></td>
@@ -485,7 +485,7 @@
               <tr>
               <td>
                   <div class="d-flex align-items-center">
-                  <img src="../../assets/img/products/note10.png" alt="Samsung" height="32" width="32" class="me-2">
+                  <img src="{{URL::to('public/assets/admin/img/products/note10.png')}}" alt="Samsung" height="32" width="32" class="me-2">
                   <div class="d-flex flex-column">
                       <span class="fw-medium lh-1">Note 10</span>
                       <small class="text-muted">Samsung</small>
@@ -494,7 +494,7 @@
               </td>
               <td><span class="badge bg-label-primary rounded-pill badge-center p-3 me-2"><i class="bx bx-mobile-alt bx-xs"></i></span> Smart Phone</td>
               <td>
-                  <div class="lh-1"><span class="text-primary fw-medium">$149</span></div>
+                  <div class="lh-1"><span class="text-primary fw-medium">₹149</span></div>
                   <small class="text-muted">Fully Paid</small>
               </td>
               <td><span class="badge bg-label-success">Completed</span></td>
@@ -511,7 +511,7 @@
               <tr>
               <td>
                   <div class="d-flex align-items-center">
-                  <img src="../../assets/img/products/iphone.png" alt="Apple" height="32" width="32" class="me-2">
+                  <img src="{{URL::to('public/assets/admin/img/products/iphone.png')}}" alt="Apple" height="32" width="32" class="me-2">
                   <div class="d-flex flex-column">
                       <span class="fw-medium lh-1">iPhone 11 Pro</span>
                       <small class="text-muted">Apple</small>
@@ -520,7 +520,7 @@
               </td>
               <td><span class="badge bg-label-primary rounded-pill badge-center p-3 me-2"><i class="bx bx-mobile-alt bx-xs"></i></span> Smart Phone</td>
               <td>
-                  <div class="lh-1"><span class="text-primary fw-medium">$399</span></div>
+                  <div class="lh-1"><span class="text-primary fw-medium">₹399</span></div>
                   <small class="text-muted">Fully Paid</small>
               </td>
               <td><span class="badge bg-label-success">Completed</span></td>
@@ -537,7 +537,7 @@
               <tr>
               <td>
                   <div class="d-flex align-items-center">
-                  <img src="../../assets/img/products/mi-tv.png" alt="Xiaomi" height="32" width="32" class="me-2">
+                  <img src="{{URL::to('public/assets/admin/img/products/mi-tv.png')}}" alt="Xiaomi" height="32" width="32" class="me-2">
                   <div class="d-flex flex-column">
                       <span class="fw-medium lh-1">Mi LED TV 4X</span>
                       <small class="text-muted">Xiaomi</small>
@@ -546,7 +546,7 @@
               </td>
               <td><span class="badge bg-label-danger rounded-pill badge-center p-3 me-2"><i class="bx bx-tv bx-xs"></i></span> Smart TV</td>
               <td>
-                  <div class="text-muted lh-1"><span class="text-primary fw-medium">$349</span>/2499</div>
+                  <div class="text-muted lh-1"><span class="text-primary fw-medium">₹349</span>/2499</div>
                   <small class="text-muted">Partially Paid</small>
               </td>
               <td><span class="badge bg-label-primary">Confirmed</span></td>
@@ -563,7 +563,7 @@
               <tr>
               <td>
                   <div class="d-flex align-items-center">
-                  <img src="../../assets/img/products/logitech-mx.png" alt="Logitech" height="32" width="32" class="me-2">
+                  <img src="{{URL::to('public/assets/admin/img/products/logitech-mx.png')}}" alt="Logitech" height="32" width="32" class="me-2">
                   <div class="d-flex flex-column">
                       <span class="fw-medium lh-1">Logitech MX</span>
                       <small class="text-muted">Logitech</small>
@@ -572,7 +572,7 @@
               </td>
               <td><span class="badge bg-label-warning rounded-pill badge-center p-3 me-2"><i class="bx bx-mouse bx-xs"></i></span> Mouse</td>
               <td>
-                  <div class="lh-1"><span class="text-primary fw-medium">$89</span></div>
+                  <div class="lh-1"><span class="text-primary fw-medium">₹89</span></div>
                   <small class="text-muted">Fully Paid</small>
               </td>
               <td><span class="badge bg-label-primary">Completed</span></td>
@@ -614,7 +614,7 @@
               <span class="badge bg-label-warning p-2"><i class="bx bx-wallet text-warning"></i></span>
               </div>
               <div>
-              <h6 class="mb-0">$2.54k</h6>
+              <h6 class="mb-0">₹2.54k</h6>
               <small>Wallet</small>
               </div>
           </div>
@@ -623,7 +623,7 @@
               <span class="badge bg-label-secondary p-2"><i class="bx bx-dollar text-secondary"></i></span>
               </div>
               <div>
-              <h6 class="mb-0">$4.2k</h6>
+              <h6 class="mb-0">₹4.2k</h6>
               <small>Paypal</small>
               </div>
           </div>

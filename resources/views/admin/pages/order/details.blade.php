@@ -32,7 +32,7 @@
           <h6 class="m-0"><a href=" javascript:void(0)">Edit</a></h6>
         </div>
         <div class="card-datatable table-responsive">
-          <table class="datatables-order-details table">
+          <table class="datatables-table table">
             <thead>
               <tr>
                 <th></th>
@@ -143,7 +143,7 @@
         <div class="card-body">
           <div class="d-flex justify-content-start align-items-center mb-4">
             <div class="avatar me-2">
-              <img src="../../assets/img/avatars/1.png" alt="Avatar" class="rounded-circle">
+              <img src="{{URL::to('public/assets/admin/img/avatars/1.png')}}" alt="Avatar" class="rounded-circle">
             </div>
             <div class="d-flex flex-column">
               <a href="app-user-view-account.html" class="text-body text-nowrap">

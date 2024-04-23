@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>eCommerce - Dashboards</title>
+    <title>ORAT | Admin</title>
 
     
     <meta name="description" content="Most Powerful &amp; Comprehensive Bootstrap 5 Admin Dashboard built for developers!" />
@@ -168,7 +168,7 @@
   
 
   <script>
-
+    var datatables = $(".datatables-table").DataTable();
   </script>
   
 </body>

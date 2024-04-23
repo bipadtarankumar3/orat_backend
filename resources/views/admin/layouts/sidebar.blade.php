@@ -5,7 +5,7 @@
       <a href="index.html" class="app-brand-link">
         <span class="app-brand-logo demo">
   
-            <img src="" alt="">
+            <img src="{{URL::to('public/assets/admin/img/logo_1.png')}}" width="100%" alt="">
   
         </span>
         <span class="app-brand-text demo menu-text fw-bold ms-2">Sneat</span>
@@ -66,11 +66,11 @@
               <div class="text-truncate" data-i18n="Order List">Order List</div>
             </a>
           </li>
-          <li class="menu-item">
+          {{-- <li class="menu-item">
             <a href="{{URL::to('admin/order/details')}}" class="menu-link">
               <div class="text-truncate" data-i18n="Order Details">Order Details</div>
             </a>
-          </li>
+          </li> --}}
           
         </ul>
       </li>

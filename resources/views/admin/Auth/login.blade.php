@@ -20,15 +20,6 @@
   <link rel="icon" type="image/x-icon" href="{{URL::to('public/assets/admin/img/favicon/favicon.ico')}}" />
 
   
-      <!-- Google Tag Manager (Default ThemeSelection: GTM-5DDHKGP, PixInvent: GTM-5J3LMKC) -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    '../../../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5DDHKGP');</script>
-  <!-- End Google Tag Manager -->
-    
-
   <!-- Include Styles -->
   <!-- BEGIN: Theme CSS-->
 <!-- Fonts -->
@@ -84,7 +75,7 @@
           <a href="" class="app-brand-link gap-2">
            
             <span class="app-brand-text demo text-heading fw-semibold">
-              <img src="{{URL::to('public/assets/admin/img/logo/logo.jpg')}}" alt="" height="50px" width="170px">
+              <img src="{{URL::to('public/assets/admin/img/logo_1.png')}}" alt="" height="50px" width="170px">
             </span>
           </a>
         </div>
@@ -111,7 +102,7 @@
                 </div>
               </div>
             </div>
-            <div class="mb-3 d-flex justify-content-between">
+            {{-- <div class="mb-3 d-flex justify-content-between">
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="remember-me">
                 <label class="form-check-label" for="remember-me">
@@ -121,7 +112,7 @@
               <a href="forgot-password-basic.html" class="float-end mb-1">
                 <span>Forgot Password?</span>
               </a>
-            </div>
+            </div> --}}
             <div class="mb-3">
               <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
             </div>
