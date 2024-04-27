@@ -7,6 +7,14 @@ use Illuminate\Http\Request;
 
 class SettingController extends Controller
 {
+    public function profile(){
+        $data['title']='setting Lists';
+        return view('admin.pages.setting.profile',$data);
+    }
+    public function cms(){
+        $data['title']='setting Lists';
+        return view('admin.pages.setting.cms',$data);
+    }
     public function store(){
         $data['title']='setting Lists';
         return view('admin.pages.setting.store',$data);

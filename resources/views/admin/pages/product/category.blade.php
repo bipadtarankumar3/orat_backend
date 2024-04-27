@@ -16,8 +16,16 @@
     <div class="app-ecommerce-category">
       <!-- Category List Table -->
       <div class="card">
+        <div class="row my-4">
+          <div class="col-md-12 float-right text-right" style="text-align: right">
+             <button class="btn btn-secondary add-new btn-primary ms-2" tabindex="0" aria-controls="DataTables_Table_0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasEcommerceCategoryList">
+              <span><i class="bx bx-plus me-0 me-sm-1"></i>Add Category</span>
+            </button>
+          </div>
+        </div>
+       
         <div class="card-datatable table-responsive">
-          <table class="datatables-category-list table border-top">
+          <table class="datatables-table table border-top">
             <thead>
               <tr>
                 <th></th>

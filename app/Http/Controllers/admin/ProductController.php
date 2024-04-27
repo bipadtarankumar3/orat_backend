@@ -19,4 +19,17 @@ class ProductController extends Controller
         $data['title']='product Add';
         return view('admin.pages.product.category',$data);
     }
+    public function sub_category(){
+        $data['title']='product Add';
+        return view('admin.pages.product.sub_category',$data);
+    }
+    public function inventory(){
+        $data['title']='inventory Lists';
+        return view('admin.pages.product.inventory',$data);
+    }
+    public function product_price(){
+        $data['title']='product_price Lists';
+        return view('admin.pages.product.product_price',$data);
+    }
+
 }

@@ -43,17 +43,17 @@
             <div class="dropdown-divider"></div>
           </li>
           <li>
-            <a class="dropdown-item" href="pages-profile-user.html">
+            <a class="dropdown-item" href="{{URL::to('admin/setting/profile')}}">
               <i class="bx bx-user me-2"></i>
               <span class="align-middle">My Profile</span>
             </a>
           </li>
-          <li>
+          {{-- <li>
             <a class="dropdown-item" href="pages-account-settings-account.html">
               <i class="bx bx-cog me-2"></i>
               <span class="align-middle">Settings</span>
             </a>
-          </li>
+          </li> --}}
           
           <li>
             <div class="dropdown-divider"></div>

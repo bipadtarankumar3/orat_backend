@@ -30,6 +30,26 @@
             </a>
         </li>
 
+        <li class="menu-item">
+          <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class='menu-icon bx bxs-copy-alt'></i>
+            <div class="text-truncate" data-i18n="Category Management">Category Management</div>
+          </a>
+          <ul class="menu-sub">
+            <li class="menu-item">
+              <a href="{{URL::to('admin/product/category')}}" class="menu-link">
+                <div class="text-truncate" data-i18n="Category List">Category List</div>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="{{URL::to('admin/product/sub_category')}}" class="menu-link">
+                <div class="text-truncate" data-i18n="Sub Category Lists">Sub Category List</div>
+              </a>
+            </li>
+           
+          </ul>
+        </li>
+
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           
@@ -47,18 +67,20 @@
               <div class="text-truncate" data-i18n="Add Product">Add Product</div>
             </a>
           </li>
-          <li class="menu-item">
-            <a href="{{URL::to('admin/product/category')}}" class="menu-link">
-              <div class="text-truncate" data-i18n="Category List">Category List</div>
-            </a>
-          </li>
         </ul>
+      </li>
+
+      <li class="menu-item">
+        <a href="{{URL::to('admin/product/product_price')}}" class="menu-link">
+            <i class='menu-icon bx bx-rupee'></i>
+          <div class="text-truncate" data-i18n="Price Management">Price Management</div>
+        </a>
       </li>
 
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
             <i class="menu-icon tf-icons bx bx-food-menu"></i>
-          <div class="text-truncate" data-i18n="Order">Order</div>
+          <div class="text-truncate" data-i18n="Orders">Orders</div>
         </a>
         <ul class="menu-sub">
           <li class="menu-item">
@@ -66,19 +88,13 @@
               <div class="text-truncate" data-i18n="Order List">Order List</div>
             </a>
           </li>
-          {{-- <li class="menu-item">
-            <a href="{{URL::to('admin/order/details')}}" class="menu-link">
-              <div class="text-truncate" data-i18n="Order Details">Order Details</div>
-            </a>
-          </li> --}}
-          
         </ul>
       </li>
 
       <li class="menu-item">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
             <i class="menu-icon tf-icons bx bx-user"></i>
-          <div class="text-truncate" data-i18n="Customer">Customer</div>
+          <div class="text-truncate" data-i18n="User Management">User Management</div>
         </a>
         <ul class="menu-sub">
           <li class="menu-item">
@@ -86,39 +102,124 @@
               <div class="text-truncate" data-i18n="All Customers">All Customers</div>
             </a>
           </li>
-          <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-              <div class="text-truncate" data-i18n="Customer Details">Customer Details</div>
-            </a>
-            <ul class="menu-sub">
-              <li class="menu-item">
-                <a href="{{URL::to('admin/customer/overview')}}" class="menu-link">
-                  <div class="text-truncate" data-i18n="Overview">Overview</div>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a href="{{URL::to('admin/customer/security')}}" class="menu-link">
-                  <div class="text-truncate" data-i18n="Security">Security</div>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a href="{{URL::to('admin/customer/address_and_billing')}}" class="menu-link">
-                  <div class="text-truncate" data-i18n="Address & Billing">Address & Billing</div>
-                </a>
-              </li>
-              <li class="menu-item">
-                <a href="{{URL::to('admin/customer/notification')}}" class="menu-link">
-                  <div class="text-truncate" data-i18n="Notifications">Notifications</div>
-                </a>
-              </li>
 
-            </ul>
-          </li>
-          
         </ul>
       </li>
 
       <li class="menu-item">
+        <a href="{{URL::to('admin/payment/list')}}" class="menu-link">
+            <i class='menu-icon bx bx-stopwatch'></i>
+          <div class="text-truncate" data-i18n="Payment histories">Payment histories</div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="{{URL::to('admin/gift/list')}}" class="menu-link">
+            <i class='menu-icon bx bx-gift'></i>
+          <div class="text-truncate" data-i18n="Gift Card">Gift Cards</div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="{{URL::to('admin/product/inventory')}}" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-spreadsheet"></i>
+          <div class="text-truncate" data-i18n="Inventory Management">Inventory Management</div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="{{URL::to('admin/invoice/list')}}" class="menu-link">
+            <i class='menu-icon bx bx-receipt'></i>
+          <div class="text-truncate" data-i18n="Invoice">Invoice</div>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a href="{{URL::to('admin/discount/list')}}" class="menu-link">
+            <i class='menu-icon bx bxs-shopping-bags'></i>
+          <div class="text-truncate" data-i18n="Offers & Discount">Offers & Discount</div>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a href="{{URL::to('admin/review/list')}}" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-spreadsheet"></i>
+          <div class="text-truncate" data-i18n="Query Management">Query Management</div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon tf-icons bx bx-food-menu"></i>
+          <div class="text-truncate" data-i18n="Reports">Reports</div>
+        </a>
+        <ul class="menu-sub">
+          <li class="menu-item">
+            <a href="{{URL::to('admin/reports/sales')}}" class="menu-link">
+              <div class="text-truncate" data-i18n="Sales Report">Sales Report</div>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="{{URL::to('admin/reports/product')}}" class="menu-link">
+              <div class="text-truncate" data-i18n="Product reports">Product reports</div>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="{{URL::to('admin/reports/payment')}}" class="menu-link">
+              <div class="text-truncate" data-i18n="Payment report ">Payment report</div>
+            </a>
+          </li>
+
+        </ul>
+      </li>
+
+      <li class="menu-item">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon tf-icons bx bx-food-menu"></i>
+          <div class="text-truncate" data-i18n="Exhibition">Exhibition</div>
+        </a>
+        <ul class="menu-sub">
+          <li class="menu-item">
+            <a href="{{URL::to('admin/setting/profile')}}" class="menu-link">
+              <div class="text-truncate" data-i18n="Admin profile">Profile</div>
+            </a>
+          </li>
+          {{-- <li class="menu-item">
+            <a href="{{URL::to('admin/setting/roles')}}" class="menu-link">
+              <div class="text-truncate" data-i18n="Roles management ">Roles management </div>
+            </a>
+          </li> --}}
+          <li class="menu-item">
+            <a href="{{URL::to('admin/setting/cms')}}" class="menu-link">
+              <div class="text-truncate" data-i18n="CMS ">CMS</div>
+            </a>
+          </li>
+
+        </ul>
+      </li>
+
+      <li class="menu-item">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon tf-icons bx bx-food-menu"></i>
+          <div class="text-truncate" data-i18n="Settings">Settings</div>
+        </a>
+        <ul class="menu-sub">
+          <li class="menu-item">
+            <a href="{{URL::to('admin/setting/profile')}}" class="menu-link">
+              <div class="text-truncate" data-i18n="Admin profile">Profile</div>
+            </a>
+          </li>
+          {{-- <li class="menu-item">
+            <a href="{{URL::to('admin/setting/roles')}}" class="menu-link">
+              <div class="text-truncate" data-i18n="Roles management ">Roles management </div>
+            </a>
+          </li> --}}
+          <li class="menu-item">
+            <a href="{{URL::to('admin/setting/cms')}}" class="menu-link">
+              <div class="text-truncate" data-i18n="CMS ">CMS</div>
+            </a>
+          </li>
+
+        </ul>
+      </li>
+
+      {{-- <li class="menu-item">
         <a href="{{URL::to('admin/review/list')}}" class="menu-link">
             <i class="menu-icon tf-icons bx bx-spreadsheet"></i>
           <div class="text-truncate" data-i18n="Manage Reviews">Manage Reviews</div>
@@ -165,7 +266,7 @@
             <i class='menu-icon  bx bx-current-location'></i>
           <div class="text-truncate" data-i18n="Locations">Locations</div>
         </a>
-      </li>
+      </li> --}}
 
       {{-- <li class="menu-item">
         <a href="app-email.html" class="menu-link">
