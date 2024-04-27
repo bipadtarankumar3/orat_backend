@@ -12,7 +12,9 @@ use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\PaymentController;
 use App\Http\Controllers\admin\InvoiceController;
 use App\Http\Controllers\admin\DiscountController;
+use App\Http\Controllers\admin\ExhibitionController;
 use App\Http\Controllers\admin\GiftController;
+use App\Http\Controllers\admin\ReportsController;
 
 Route::get('login', [AdminAuthController::class, 'login'])->name('login');
 Route::post('admin-login-action', [AdminAuthController::class, 'adminLoginAction']);
@@ -53,6 +55,19 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['App\Http\
     Route::group(['prefix' => 'review', 'as' => 'review.'], function () {
         Route::get('list', [ReviewController::class, 'reviewList']);
         Route::get('add', [ReviewController::class, 'addreview']);
+    });
+    Route::group(['prefix' => 'reports', 'as' => 'reports.'], function () {
+        Route::get('sales', [ReportsController::class, 'salesReport']);
+        Route::get('product', [ReportsController::class, 'productReport']);
+        Route::get('payment', [ReportsController::class, 'paymentReport']);
+    });
+    Route::group(['prefix' => 'exhibition', 'as' => 'exhibition.'], function () {
+        Route::get('create', [ExhibitionController::class, 'create']);
+        Route::get('create/user', [ExhibitionController::class, 'createUser']);
+        Route::get('sales', [ExhibitionController::class, 'sales']);
+        Route::get('expense', [ExhibitionController::class, 'expense']);
+        Route::get('product', [ReportsController::class, 'productReport']);
+        Route::get('payment', [ReportsController::class, 'paymentReport']);
     });
 
     Route::group(['prefix' => 'payment', 'as' => 'payment.'], function () {

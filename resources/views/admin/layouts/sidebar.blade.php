@@ -176,20 +176,26 @@
         </a>
         <ul class="menu-sub">
           <li class="menu-item">
-            <a href="{{URL::to('admin/setting/profile')}}" class="menu-link">
-              <div class="text-truncate" data-i18n="Admin profile">Profile</div>
+            <a href="{{URL::to('admin/exhibition/create')}}" class="menu-link">
+              <div class="text-truncate" data-i18n="Create Exhibition">Create Exhibition</div>
             </a>
           </li>
-          {{-- <li class="menu-item">
-            <a href="{{URL::to('admin/setting/roles')}}" class="menu-link">
-              <div class="text-truncate" data-i18n="Roles management ">Roles management </div>
-            </a>
-          </li> --}}
           <li class="menu-item">
-            <a href="{{URL::to('admin/setting/cms')}}" class="menu-link">
-              <div class="text-truncate" data-i18n="CMS ">CMS</div>
+            <a href="{{URL::to('admin/exhibition/create/user')}}" class="menu-link">
+              <div class="text-truncate" data-i18n="Create Exhibition Users">Create Exhibition Users</div>
             </a>
           </li>
+          <li class="menu-item">
+            <a href="{{URL::to('admin/exhibition/sales')}}" class="menu-link">
+              <div class="text-truncate" data-i18n="Exhibition Sales"> Exhibition Sales</div>
+            </a>
+          </li>
+          <li class="menu-item">
+            <a href="{{URL::to('admin/exhibition/expense')}}" class="menu-link">
+              <div class="text-truncate" data-i18n="Exhibition Expense"> Exhibition Expense</div>
+            </a>
+          </li>
+          
 
         </ul>
       </li>

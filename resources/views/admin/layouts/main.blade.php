@@ -52,6 +52,7 @@
     <link rel="stylesheet" href="{{ URL::to('public/assets/admin/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css')}}" />
     <link rel="stylesheet" href="{{ URL::to('public/assets/admin/vendor/libs/select2/select2.css')}}">
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
     <!-- Page CSS -->
     <link rel="stylesheet" href="{{ URL::to('public/assets/admin/vendor/css/pages/card-analytics.css')}}" />
@@ -130,6 +131,16 @@
   
   <!-- endbuild -->
 
+
+  <!-- JavaScript -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <script>
+      $(document).ready(function() {
+          $('#daterange').daterangepicker({
+              opens: 'left'
+          });
+      });
+  </script>
   <!-- Vendors JS -->
   <script src="{{ URL::to('public/assets/admin/vendor/libs/apex-charts/apexcharts.js')}}"></script>
 
