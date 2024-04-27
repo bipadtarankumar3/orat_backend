@@ -176,17 +176,18 @@
         </a>
         <ul class="menu-sub">
           <li class="menu-item">
-            <a href="{{URL::to('admin/exhibition/create')}}" class="menu-link">
-              <div class="text-truncate" data-i18n="Create Exhibition">Create Exhibition</div>
+            <a href="{{URL::to('admin/exhibition/list')}}" class="menu-link">
+              <div class="text-truncate" data-i18n="Exhibition">Exhibition</div>
             </a>
           </li>
           <li class="menu-item">
-            <a href="{{URL::to('admin/exhibition/create/user')}}" class="menu-link">
-              <div class="text-truncate" data-i18n="Create Exhibition Users">Create Exhibition Users</div>
+            <a href="{{URL::to('admin/exhibition/user/list')}}" class="menu-link">
+              <div class="text-truncate" data-i18n=" Exhibition User List"> Exhibition User List</div>
             </a>
           </li>
+       
           <li class="menu-item">
-            <a href="{{URL::to('admin/exhibition/sales')}}" class="menu-link">
+            <a href="{{URL::to('admin/exhibition/sales/list')}}" class="menu-link">
               <div class="text-truncate" data-i18n="Exhibition Sales"> Exhibition Sales</div>
             </a>
           </li>

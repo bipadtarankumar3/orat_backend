@@ -7,18 +7,23 @@ use Illuminate\Http\Request;
 
 class ExhibitionController extends Controller
 {
-    public function create(){
+
+    public function list(){
         $data['title']='Exhibition Create';
-        return view('admin.pages.exhibition.create',$data);
+        return view('admin.pages.exhibition.list',$data);
     }
-    public function createUser(){
-        $data['title']='Exhibition Create User';
-        return view('admin.pages.exhibition.create_user',$data);
+    public function ExhibitionUserlist(){
+        $data['title']='Exhibition  User';
+        return view('admin.pages.exhibition.exhibitionuser_list',$data);
     }
 
-    public function sales(){
+    public function sales_create(){
         $data['title']='Exhibition Sales';
         return view('admin.pages.exhibition.exhibitionsales',$data);
+    }
+    public function sales_list(){
+        $data['title']='Exhibition Sales';
+        return view('admin.pages.exhibition.exhibitionsales_list',$data);
     }
     public function expense(){
         $data['title']='Exhibition expense';
