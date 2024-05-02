@@ -54,9 +54,14 @@
     <div class="row my-4">
         <div class="col-md-3">
             <div class="form-group">
-                <label for="">Sort by dates</label>
-                <input type="date" name="form_date" id="form_date" class="form-control">
-                <input type="date" name="to_date" id="to_date" class="form-control mt-2">
+                <label for="">Form Date</label>
+                <input type="date" name="form_date" id="" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="">To Date</label>
+                <input type="date" name="to_date" id="" class="form-control">
             </div>
         </div>
         <div class="col-md-3">

@@ -19,8 +19,8 @@
           <div class="col-sm-6 col-lg-3">
             <div class="d-flex justify-content-between align-items-start card-widget-1 border-end pb-3 pb-sm-0">
               <div>
-                <h3 class="mb-2">₹ 56</h3>
-                <p class="mb-0">Pending Payment</p>
+                <h3 class="mb-2">56</h3>
+                <p class="mb-0">No Of User Payment</p>
               </div>
               <div class="avatar me-sm-4">
                 <span class="avatar-initial rounded bg-label-secondary">
@@ -94,9 +94,9 @@
           <tr>
             <td>1</td>
             <td>001</td>
-            <td>12/12/2023</td>
+            <td>Deepak</td>
             <td>212</td>
-            <td>Success</td>
+            <td><button class="btn btn-warning">Pending</button></td>
             <td>Razorpay</td>
             <td class="text-end">
               <div class="dropdown pe-3">

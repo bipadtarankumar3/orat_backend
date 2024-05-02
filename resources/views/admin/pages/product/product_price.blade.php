@@ -30,9 +30,10 @@
               <th></th>
               <th>Image</th>
               <th>product</th>
-              <th>Cost Per Item</th>
               <th>Price</th>
+              <th>Discount Price</th>
               <th>Sale Price</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -47,10 +48,20 @@
                 <p>SKU: HS-131-A0</p>
               </td>
               <td>
-                <input type="text" class="form-control">
+                ₹ 1000
               </td>
-              <td><input type="text" class="form-control"></td>
-              <td><input type="text" class="form-control"></td>
+              <td>₹ 10</td>
+              <td>₹ 990</td>
+              <td class="text-end">
+                <div class="dropdown pe-3">
+                  <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-dots-vertical-rounded"></i></button>
+                  <div class="dropdown-menu" style="">
+                    {{-- <a class="dropdown-item" href="http://localhost/orat_backend/admin/order/details"><i class="bx bx-edit-alt me-1"></i> View</a> --}}
+                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                  </div>
+                </div>
+              </td>
             </tr>
           </tbody>
         </table>

@@ -29,4 +29,26 @@ class ExhibitionController extends Controller
         $data['title']='Exhibition expense';
         return view('admin.pages.exhibition.exhibitionexpense',$data);
     }
+
+    public function model_list(){
+        $data['title']='Exhibition model';
+        return view('admin.pages.exhibition.model_list',$data);
+    }
+
+    public function staff_list(){
+        $data['title']='Exhibition model';
+        return view('admin.pages.exhibition.staff_list',$data);
+    }
+
+    
+    public function owner_list(){
+        $data['title']='Exhibition model';
+        return view('admin.pages.exhibition.owner_list',$data);
+    }
+
+    public function others_list(){
+        $data['title']='Exhibition model';
+        return view('admin.pages.exhibition.others_list',$data);
+    }
+
 }

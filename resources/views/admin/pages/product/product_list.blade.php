@@ -99,6 +99,7 @@
               <th></th>
               <th></th>
               <th>product</th>
+              <th>Image</th>
               <th>category</th>
               <th>stock</th>
               <th>sku</th>
@@ -113,13 +114,27 @@
               <td><input type="checkbox" name="" id=""></td>
               <td>1</td>
               <td>Salwar</td>
-              <td></td>
+              <td>
+                <img src="{{URL::to('public/assets/admin/img/products/demo_img.jpg')}}" width="120px" alt="">
+              </td>
+              <td>LEHENGAS</td>
               <td>12</td>
-              <td></td>
+              <td>SWW</td>
               <td>₹ 123</td>
               <td>100</td>
-              <td></td>
-              <td></td>
+              <td>
+                <button class="btn btn-success">Published</button>
+              </td>
+              <td class="text-end">
+                <div class="dropdown pe-3">
+                  <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-dots-vertical-rounded"></i></button>
+                  <div class="dropdown-menu" style="">
+                    {{-- <a class="dropdown-item" href="http://localhost/orat_backend/admin/order/details"><i class="bx bx-edit-alt me-1"></i> View</a> --}}
+                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                    <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                  </div>
+                </div>
+              </td>
             </tr>
           </tbody>
         </table>

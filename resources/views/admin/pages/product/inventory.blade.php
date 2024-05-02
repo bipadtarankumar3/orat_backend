@@ -7,7 +7,7 @@
             
 
     <h4 class="py-3 mb-4">
-      <span class="text-muted fw-light">eCommerce /</span> Product List
+      <span class="text-muted fw-light">eCommerce /</span> Inventory List
     </h4>
     
     <!-- Product List Widget -->

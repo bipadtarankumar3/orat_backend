@@ -48,19 +48,19 @@
             <div class="order-calculations">
               <div class="d-flex justify-content-between mb-2">
                 <span class="w-px-100">Subtotal:</span>
-                <span class="text-heading">$6398</span>
+                <span class="text-heading">₹6398</span>
               </div>
               <div class="d-flex justify-content-between mb-2">
                 <span class="w-px-100">Discount:</span>
-                <span class="text-heading mb-0">$22</span>
+                <span class="text-heading mb-0">₹22</span>
               </div>
               <div class="d-flex justify-content-between mb-2">
                 <span class="w-px-100">Tax:</span>
-                <span class="text-heading">$30</span>
+                <span class="text-heading">₹30</span>
               </div>
               <div class="d-flex justify-content-between">
                 <h6 class="w-px-100 mb-0">Total:</h6>
-                <h6 class="mb-0">$6450</h6>
+                <h6 class="mb-0">₹6450</h6>
               </div>
             </div>
           </div>

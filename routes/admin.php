@@ -45,6 +45,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['App\Http\
     Route::group(['prefix' => 'order', 'as' => 'order.'], function () {
         Route::get('list', [OrderController::class, 'orderList']);
         Route::get('details', [OrderController::class, 'details']);
+        Route::get('status', [OrderController::class, 'status']);
+        Route::get('update_status', [OrderController::class, 'update_status']);
     });
 
     Route::group(['prefix' => 'referral', 'as' => 'referral.'], function () {
@@ -64,13 +66,18 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['App\Http\
     Route::group(['prefix' => 'exhibition', 'as' => 'exhibition.'], function () {
         Route::get('list', [ExhibitionController::class, 'list']);
         Route::get('/user/list', [ExhibitionController::class, 'ExhibitionUserlist']);
-      
         Route::get('create/user', [ExhibitionController::class, 'createUser']);
         Route::get('sales/list', [ExhibitionController::class, 'sales_list']);
         Route::get('sales/create', [ExhibitionController::class, 'sales_create']);
         Route::get('expense', [ExhibitionController::class, 'expense']);
         Route::get('product', [ReportsController::class, 'productReport']);
         Route::get('payment', [ReportsController::class, 'paymentReport']);
+
+
+        Route::get('model', [ExhibitionController::class, 'model_list']);
+        Route::get('staff', [ExhibitionController::class, 'staff_list']);
+        Route::get('owner', [ExhibitionController::class, 'owner_list']);
+        Route::get('others', [ExhibitionController::class, 'others_list']);
     });
 
     Route::group(['prefix' => 'payment', 'as' => 'payment.'], function () {
@@ -79,6 +86,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['App\Http\
 
     Route::group(['prefix' => 'invoice', 'as' => 'invoice.'], function () {
         Route::get('list', [InvoiceController::class, 'invoiceList']);
+        Route::get('details', [InvoiceController::class, 'invoicedetails']);
     });
 
     Route::group(['prefix' => 'discount', 'as' => 'discount.'], function () {

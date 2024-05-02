@@ -177,61 +177,6 @@
         </div>
         <!--/ Two-steps verification -->
     
-        <!-- Recent Devices -->
-        <div class="card mb-4">
-          <h5 class="card-header">Recent Devices</h5>
-          <div class="table-responsive">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th class="text-truncate">Browser</th>
-                  <th class="text-truncate">Device</th>
-                  <th class="text-truncate">Location</th>
-                  <th class="text-truncate">Recent Activities</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="text-truncate"><i class='bx bxl-windows text-info me-3'></i> Chrome on Windows</td>
-                  <td class="text-truncate">HP Spectre 360</td>
-                  <td class="text-truncate">Switzerland</td>
-                  <td class="text-truncate">10, July 2021 20:07</td>
-                </tr>
-                <tr>
-                  <td class="text-truncate"><i class='bx bx-mobile-alt text-danger me-3'></i> Chrome on iPhone</td>
-                  <td class="text-truncate">iPhone 12x</td>
-                  <td class="text-truncate">Australia</td>
-                  <td class="text-truncate">13, July 2021 10:10</td>
-                </tr>
-                <tr>
-                  <td class="text-truncate"><i class='bx bxl-android text-success me-3'></i> Chrome on Android</td>
-                  <td class="text-truncate">Oneplus 9 Pro</td>
-                  <td class="text-truncate">Dubai</td>
-                  <td class="text-truncate">14, July 2021 15:15</td>
-                </tr>
-                <tr>
-                  <td class="text-truncate"><i class='bx bxl-apple me-3'></i>Chrome on MacOS</td>
-                  <td class="text-truncate">Apple iMac</td>
-                  <td class="text-truncate">India</td>
-                  <td class="text-truncate">16, July 2021 16:17</td>
-                </tr>
-                <tr>
-                  <td class="text-truncate"><i class='bx bxl-windows text-info me-3'></i> Chrome on Windows</td>
-                  <td class="text-truncate">HP Spectre 360</td>
-                  <td class="text-truncate">Switzerland</td>
-                  <td class="text-truncate">20, July 2021 21:01</td>
-                </tr>
-                <tr>
-                  <td class="text-truncate border-bottom-0"><i class='bx bxl-android text-success me-3'></i> Chrome on Android</td>
-                  <td class="text-truncate border-bottom-0">Oneplus 9 Pro</td>
-                  <td class="text-truncate border-bottom-0">Dubai</td>
-                  <td class="text-truncate border-bottom-0">21, July 2021 12:22</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <!--/ Recent Devices -->
     
     
       </div>

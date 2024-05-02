@@ -15,4 +15,12 @@ class OrderController extends Controller
         $data['title']='order Add';
         return view('admin.pages.order.details',$data);
     }
+    public function status(){
+        $data['title']='order Status';
+        return view('admin.pages.order.order_status',$data);
+    }
+    public function update_status(){
+        $data['title']='order update status';
+        return view('admin.pages.order.order_update_status',$data);
+    }
 }

@@ -14,18 +14,40 @@
   <div class="card">
   
     <div class="card-datatable table-responsive">
-      <table class="datatables-customers table border-top">
+      <table class="datatables-table table border-top">
         <thead>
           <tr>
-            <th></th>
-            <th></th>
+            <th>Sl.</th>
             <th>Customer</th>
             <th class="text-nowrap">Customer Id</th>
-            <th>Country</th>
-            <th>Order</th>
+            <th>Email</th>
+            <th>Phone No</th>
+            <th>Total Order</th>
             <th class="text-nowrap">Total Spent</th>
+            <th class="text-nowrap">Action</th>
           </tr>
         </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Lorine Hischke</td>
+            <td>634759</td>
+            <td>deepak@gmail.com</td>
+            <td>1234567890</td>
+            <td>184</td>
+            <td>₹12,378</td>
+            <td class="text-end">
+              <div class="dropdown pe-3">
+                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-dots-vertical-rounded"></i></button>
+                <div class="dropdown-menu" style="">
+                  <a class="dropdown-item" href="http://localhost/orat_backend/admin/customer/overview"><i class="bx bx-edit-alt me-1"></i> View</a>
+                  <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                  <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
     <!-- Offcanvas to add new customer -->

@@ -55,7 +55,7 @@
                   </div>
                 </div>
                 <div>
-                  <h5 class="mb-0">$12,378</h5>
+                  <h5 class="mb-0">₹12,378</h5>
                   <span>Spent</span>
                 </div>
               </div>
@@ -119,9 +119,9 @@
         <!-- Customer Pills -->
         <ul class="nav nav-pills flex-column flex-md-row mb-4">
           <li class="nav-item"><a class="nav-link active" href="javascript:void(0);"><i class="bx bx-user me-1"></i>Overview</a></li>
-          <li class="nav-item"><a class="nav-link" href="app-ecommerce-customer-details-security.html"><i class="bx bx-lock-alt me-1"></i>Security</a></li>
-          <li class="nav-item"><a class="nav-link" href="app-ecommerce-customer-details-billing.html"><i class="bx bx-detail me-1"></i>Address & Billing</a></li>
-          <li class="nav-item"><a class="nav-link" href="app-ecommerce-customer-details-notifications.html"><i class="bx bx-bell me-1"></i>Notifications</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{URL::to('admin/customer/security')}}"><i class="bx bx-lock-alt me-1"></i>Security</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{URL::to('admin/customer/address_and_billing')}}"><i class="bx bx-detail me-1"></i>Address & Billing</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{URL::to('admin/customer/notification')}}"><i class="bx bx-bell me-1"></i>Notifications</a></li>
         </ul>
         <!--/ Customer Pills -->
     
@@ -132,14 +132,14 @@
               <div class="card-body">
                 <div class="card-icon mb-3">
                   <div class="avatar">
-                    <div class="avatar-initial rounded bg-label-primary"><i class='bx bx-dollar bx-sm'></i>
+                    <div class="avatar-initial rounded bg-label-primary">₹
                     </div>
                   </div>
                 </div>
                 <div class="card-info">
                   <h4 class="card-title mb-3">Account Balance</h4>
                   <div class="d-flex align-items-end mb-1 gap-1">
-                    <h4 class="text-primary mb-0">$2345</h4>
+                    <h4 class="text-primary mb-0">₹2345</h4>
                     <p class="mb-0"> Credit Left</p>
                   </div>
                   <p class="text-muted mb-0 text-truncate">Account balance for next purchase</p>
@@ -147,23 +147,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 mb-4">
-            <div class="card">
-              <div class="card-body">
-                <div class="card-icon mb-3">
-                  <div class="avatar">
-                    <div class="avatar-initial rounded bg-label-success"><i class='bx bx-gift bx-sm'></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="card-info">
-                  <h4 class="card-title mb-3">Loyalty Program</h4>
-                  <span class="badge bg-label-success mb-1">Platinum member</span>
-                  <p class="text-muted mb-0">3000 points to next tier</p>
-                </div>
-              </div>
-            </div>
-          </div>
+
           <div class="col-md-6 mb-4">
             <div class="card">
               <div class="card-body">

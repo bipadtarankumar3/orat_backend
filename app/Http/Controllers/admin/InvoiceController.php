@@ -11,4 +11,8 @@ class InvoiceController extends Controller
         $data['title']='invoice Lists';
         return view('admin.pages.invoice.invoice_list',$data);
     }
+    public function invoicedetails(){
+        $data['title']='invoice Lists';
+        return view('admin.pages.invoice.invoice_details',$data);
+    }
 }

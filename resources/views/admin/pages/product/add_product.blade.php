@@ -20,8 +20,8 @@
           <p class="text-muted">Orders placed across your store</p>
         </div>
         <div class="d-flex align-content-center flex-wrap gap-3">
-          <button class="btn btn-label-secondary">Discard</button>
-          <button class="btn btn-label-primary">Save draft</button>
+          {{-- <button class="btn btn-label-secondary">Discard</button>
+          <button class="btn btn-label-primary">Save draft</button> --}}
           <button type="submit" class="btn btn-primary">Publish product</button>
         </div>
     
@@ -154,12 +154,12 @@
                           <span class="align-middle">Shipping</span>
                         </button>
                       </li>
-                      <li class="nav-item">
+                      {{-- <li class="nav-item">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#global-delivery">
                           <i class="bx bx-globe me-2"></i>
                           <span class="align-middle">Global Delivery</span>
                         </button>
-                      </li>
+                      </li> --}}
                       <li class="nav-item">
                         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#attributes">
                           <i class="bx bx-link me-2"></i>
@@ -190,12 +190,7 @@
                           <button class="btn btn-primary"><i class='bx bx-check me-2'></i>Confirm</button>
                         </div>
                       </div>
-                      <div>
-                        <h6>Product in stock now: <span class="text-muted">54</span></h6>
-                        <h6>Product in transit: <span class="text-muted">390</span></h6>
-                        <h6>Last time restocked: <span class="text-muted">24th June, 2023</span></h6>
-                        <h6>Total stock over lifetime: <span class="text-muted">2430</span></h6>
-                      </div>
+                     
                     </div>
                     <!-- Shipping Tab -->
                     <div class="tab-pane fade" id="shipping" role="tabpanel">
@@ -331,11 +326,11 @@
           <!-- Pricing Card -->
           <div class="card mb-4">
             <div class="card-header">
-              <h5 class="card-title mb-0">Pricing</h5>
+              <h5 class="card-title mb-0">Status</h5>
             </div>
             <div class="card-body">
               <!-- Base Price -->
-              <div class="mb-3">
+              {{-- <div class="mb-3">
                 <label class="form-label" for="ecommerce-product-price">Base Price</label>
                 <input type="number" class="form-control" id="ecommerce-product-price" placeholder="Price" name="productPrice" aria-label="Product price">
               </div>
@@ -343,8 +338,20 @@
               <div class="mb-3">
                 <label class="form-label" for="ecommerce-product-discount-price">Discounted Price</label>
                 <input type="number" class="form-control" id="ecommerce-product-discount-price" placeholder="Discounted Price" name="productDiscountedPrice" aria-label="Product discounted price">
-              </div>
+              </div> --}}
               <!-- Charge tax check box -->
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" value="" id="price-charge-tax" checked>
+                <label class="form-label" for="price-charge-tax">
+                  Add In Default Product
+                </label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" value="" id="price-charge-tax" >
+                <label class="form-label" for="price-charge-tax">
+                  Add In Exhibition  Product
+                </label>
+              </div>
               <div class="form-check mb-2">
                 <input class="form-check-input" type="checkbox" value="" id="price-charge-tax" checked>
                 <label class="form-label" for="price-charge-tax">
@@ -374,43 +381,32 @@
               <h5 class="card-title mb-0">Organize</h5>
             </div>
             <div class="card-body">
-              <!-- Vendor -->
-              <div class="mb-3 col ecommerce-select2-dropdown">
-                <label class="form-label mb-1" for="vendor">
-                  Vendor
-                </label>
-                <select id="vendor" class="select2 form-select" data-placeholder="Select Vendor">
-                  <option value="">Select Vendor</option>
-                  <option value="men-clothing">Men's Clothing</option>
-                  <option value="women-clothing">Women's-clothing</option>
-                  <option value="kid-clothing">Kid's-clothing</option>
-                </select>
-              </div>
+
               <!-- Category -->
               <div class="mb-3 col ecommerce-select2-dropdown">
                 <label class="form-label mb-1 d-flex justify-content-between align-items-center" for="category-org">
-                  <span>Category</span><a href="javascript:void(0);" class="fw-medium">Add new category</a>
+                  <span>Category</span>
+                  {{-- <a href="javascript:void(0);" class="fw-medium">Add new category</a> --}}
                 </label>
                 <select id="category-org" class="select2 form-select" data-placeholder="Select Category">
                   <option value="">Select Category</option>
-                  <option value="Household">Household</option>
-                  <option value="Management">Management</option>
-                  <option value="Electronics">Electronics</option>
-                  <option value="Office">Office</option>
-                  <option value="Automotive">Automotive</option>
+                  <option value="NEW">NEW</option>
+                <option value="Management">WOMEN</option>
+                <option value="Electronics">LEHENGAS</option>
                 </select>
               </div>
-              <!-- Collection -->
               <div class="mb-3 col ecommerce-select2-dropdown">
-                <label class="form-label mb-1" for="collection">Collection
+                <label class="form-label mb-1 d-flex justify-content-between align-items-center" for="category-org">
+                  <span>Sub Category</span>
+                  {{-- <a href="javascript:void(0);" class="fw-medium">Add new Sub category</a> --}}
                 </label>
-                <select id="collection" class="select2 form-select" data-placeholder="Collection">
-                  <option value="">Collection</option>
-                  <option value="men-clothing">Men's Clothing</option>
-                  <option value="women-clothing">Women's-clothing</option>
-                  <option value="kid-clothing">Kid's-clothing</option>
+                <select id="category-org" class="select2 form-select" data-placeholder="Select Sub Category">
+                  <option value="">Select Category</option>
+                <option value="Management">SUB WOMEN</option>
+                <option value="Electronics">SUB LEHENGAS</option>
                 </select>
               </div>
+  
               <!-- Status -->
               <div class="mb-3 col ecommerce-select2-dropdown">
                 <label class="form-label mb-1" for="status-org">Status
@@ -418,14 +414,13 @@
                 <select id="status-org" class="select2 form-select" data-placeholder="Published">
                   <option value="">Published</option>
                   <option value="Published">Published</option>
-                  <option value="Scheduled">Scheduled</option>
                   <option value="Inactive">Inactive</option>
                 </select>
               </div>
               <!-- Tags -->
               <div class="mb-3">
                 <label for="ecommerce-product-tags" class="form-label mb-1">Tags</label>
-                <input id="ecommerce-product-tags" class="form-control" name="ecommerce-product-tags" value="Normal,Standard,Premium" aria-label="Product Tags" />
+                <input id="ecommerce-product-tags" class="form-control" name="ecommerce-product-tags" value="NEW Wears" aria-label="Product Tags" />
               </div>
             </div>
           </div>
