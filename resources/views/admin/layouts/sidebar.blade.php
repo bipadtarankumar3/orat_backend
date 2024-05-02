@@ -188,7 +188,7 @@
         </a>
         <ul class="menu-sub">
           <li class="menu-item">
-            <a href="{{URL::to('admin/exhibition/list')}}" class="menu-link">
+            <a href="{{URL::to('admin/exhibition/inventory')}}" class="menu-link">
               <div class="text-truncate" data-i18n="Inventory Management">Inventory Management</div>
             </a>
           </li>

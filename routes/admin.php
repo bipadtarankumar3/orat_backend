@@ -65,6 +65,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['App\Http\
     });
     Route::group(['prefix' => 'exhibition', 'as' => 'exhibition.'], function () {
         Route::get('list', [ExhibitionController::class, 'list']);
+        Route::get('inventory', [ExhibitionController::class, 'inventory']);
         Route::get('/user/list', [ExhibitionController::class, 'ExhibitionUserlist']);
         Route::get('create/user', [ExhibitionController::class, 'createUser']);
         Route::get('sales/list', [ExhibitionController::class, 'sales_list']);

@@ -12,6 +12,10 @@ class ExhibitionController extends Controller
         $data['title']='Exhibition Create';
         return view('admin.pages.exhibition.list',$data);
     }
+    public function inventory(){
+        $data['title']='Exhibition inventory';
+        return view('admin.pages.exhibition.inventory',$data);
+    }
     public function ExhibitionUserlist(){
         $data['title']='Exhibition  User';
         return view('admin.pages.exhibition.exhibitionuser_list',$data);
