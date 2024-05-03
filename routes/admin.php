@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\admin\AdminAuthController;
+use App\Http\Controllers\admin\BannerController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\CustomerController;
 use App\Http\Controllers\admin\OrderController;
@@ -58,6 +59,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['App\Http\
         Route::get('list', [ReviewController::class, 'reviewList']);
         Route::get('add', [ReviewController::class, 'addreview']);
     });
+    Route::group(['prefix' => 'query', 'as' => 'query.'], function () {
+        Route::get('list', [ReviewController::class, 'queryList']);
+        Route::get('add', [ReviewController::class, 'addreview']);
+    });
+    Route::group(['prefix' => 'banner', 'as' => 'banner.'], function () {
+        Route::get('list', [BannerController::class, 'bannerList']);
+        Route::get('add', [ReviewController::class, 'addreview']);
+    });
     Route::group(['prefix' => 'reports', 'as' => 'reports.'], function () {
         Route::get('sales', [ReportsController::class, 'salesReport']);
         Route::get('product', [ReportsController::class, 'productReport']);
@@ -65,6 +74,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['App\Http\
     });
     Route::group(['prefix' => 'exhibition', 'as' => 'exhibition.'], function () {
         Route::get('list', [ExhibitionController::class, 'list']);
+        Route::get('query', [ExhibitionController::class, 'query']);
         Route::get('inventory', [ExhibitionController::class, 'inventory']);
         Route::get('/user/list', [ExhibitionController::class, 'ExhibitionUserlist']);
         Route::get('create/user', [ExhibitionController::class, 'createUser']);

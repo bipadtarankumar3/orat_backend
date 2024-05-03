@@ -15,4 +15,8 @@ class ReviewController extends Controller
         $data['title']='review Add';
         return view('admin.pages.review.add_review',$data);
     }
+    public function queryList(){
+        $data['title']='review Add';
+        return view('admin.pages.query.queryList',$data);
+    }
 }
