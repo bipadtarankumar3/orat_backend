@@ -87,6 +87,7 @@
               <th>Order</th>
               <th>Code</th>
               <th>Amount</th>
+              <th>Invoice</th>
               <th>Invoice Status</th>
               <th class="cell-fit">Actions</th>
             </tr>
@@ -98,8 +99,13 @@
               <td>12/01/2024</td>
               <td>Deepak</td>
               <td>ORD001</td>
-              <td>INV-001</td>
-              <td>200</td>
+              <td>#ORAT001</td>
+              <td>₹200</td>
+              <td>
+                <a href="">
+                  <button class="btn btn-sm btn-primary">PDF</button>
+                </a>
+              </td>
               <td>
                 <button class="btn btn-success">PAID</button>
               </td>

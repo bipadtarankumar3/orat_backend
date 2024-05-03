@@ -47,6 +47,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['App\Http\
         Route::get('details', [OrderController::class, 'details']);
         Route::get('status', [OrderController::class, 'status']);
         Route::get('update_status', [OrderController::class, 'update_status']);
+        Route::get('user_order_list', [OrderController::class, 'user_order_list']);
     });
 
     Route::group(['prefix' => 'referral', 'as' => 'referral.'], function () {

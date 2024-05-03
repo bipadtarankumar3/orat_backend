@@ -29,13 +29,38 @@
             <thead>
               <tr>
                 <th></th>
-                <th></th>
-                <th>Categories</th>
-                <th class="text-nowrap text-sm-end">Total Products &nbsp;</th>
-                <th class="text-nowrap text-sm-end">Total Earning</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Short Description</th>
+                <th>Long Description</th>
+                <th>Price</th>
+                <th>Gift card Code</th>
                 <th class="text-lg-center">Actions</th>
               </tr>
             </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Pujo Special</td>
+                <td>
+                  <img src="" alt="" srcset="">
+                </td>
+                <td>Short Description</td>
+                <td>Long Description</td>
+                <td>₹1000</td>
+                <td>CARD0111</td>
+                <td class="text-end">
+                  <div class="dropdown pe-3">
+                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-dots-vertical-rounded"></i></button>
+                    <div class="dropdown-menu" style="">
+                      {{-- <a class="dropdown-item" href="http://localhost/orat_backend/admin/order/details"><i class="bx bx-edit-alt me-1"></i> View</a> --}}
+                      <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                      <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </div>
@@ -60,6 +85,14 @@
             <div class="mb-3">
               <label class="form-label" for="ecommerce-category-image">Attachment</label>
               <input class="form-control" type="file" id="ecommerce-category-image">
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="ecommerce-category-image">Short Description</label>
+              <input class="form-control" type="text" id="ecommerce-category-image" placeholder="">
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="ecommerce-category-image">Long Description</label>
+              <textarea name="" class="form-control"></textarea>
             </div>
 
             <div class="mb-3">

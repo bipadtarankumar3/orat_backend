@@ -34,7 +34,11 @@
             <td>634759</td>
             <td>deepak@gmail.com</td>
             <td>1234567890</td>
-            <td>184</td>
+            <td>
+              <a href="{{URL::to('admin/order/user_order_list')}}">
+                <button class="btn btn-sm btn-info">123</button>
+              </a>
+            </td>
             <td>₹12,378</td>
             <td class="text-end">
               <div class="dropdown pe-3">
