@@ -31,7 +31,14 @@
             <td>1</td>
             <td>Salwar</td>
             <td>Deepak</td>
-            <td>5 Star</td>
+            <td>
+              <i class="fa-solid fa-star" style="color: gold"></i>
+              <i class="fa-solid fa-star" style="color: gold"></i>
+              <i class="fa-solid fa-star" style="color: gold"></i>
+              <i class="fa-solid fa-star" style="color: gold"></i>
+              <i class="fa-solid fa-star" style="color: gold"></i>
+              <i class="fa-solid fa-star" style="color: gold"></i>
+            </td>
             <td>10/10/2024</td>
             <td>
               <button class="btn btn-warning">Pending</button>

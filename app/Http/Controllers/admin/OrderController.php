@@ -23,4 +23,9 @@ class OrderController extends Controller
         $data['title']='order update status';
         return view('admin.pages.order.order_update_status',$data);
     }
+    public function user_order_list(){
+        $data['title']='order update status';
+        return view('admin.pages.order.user_order_list',$data);
+    }
+
 }
