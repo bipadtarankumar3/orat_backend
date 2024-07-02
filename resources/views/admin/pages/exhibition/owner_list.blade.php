@@ -45,13 +45,15 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($ExhibitionTravel as $key=> $item)
                                         <tr>
-                                            <td>1</td>
-                                            <td>10/12/2023</td>
-                                            <td>Flight</td>
-                                            <td>4342</td>
-                                            <td>₹10000</td>
+                                            <td>{{$key+1}}</td>
+                                            <td>{{$item->date}}</td>
+                                            <td>{{$item->travel_mode}}</td>
+                                            <td>{{$item->flight_number}}</td>
+                                            <td>₹{{$item->expenses_cost}}</td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -70,14 +72,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($ExhibitionHotel as $key=> $item)
                                         <tr>
-                                            <td>1</td>
-                                            <td>TAJ Hotel</td>
-                                            <td>10/12/2023</td>
-                                            <td>15/12/2023</td>
-                                            <td>Delux</td>
-                                            <td>₹10000</td>
+                                            <td>{{$key+1}}</td>
+                                            <td>{{$item->hotel_name}}</td>
+                                            <td>{{$item->checkin}}</td>
+                                            <td>{{$item->checkout}}</td>
+                                            <td>{{$item->room_type}}</td>
+                                            <td>₹{{$item->expenses_cost}}</td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -94,12 +98,14 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($ExhibitionFood as $key=> $item)
                                         <tr>
-                                            <td>1</td>
-                                            <td>10/12/2023</td>
-                                            <td>Apple</td>
-                                            <td>₹100</td>
+                                            <td>{{$key+1}}</td>
+                                            <td>{{$item->date}}</td>
+                                            <td>{{$item->food_name}}</td>
+                                            <td>₹{{$item->expenses_cost}}</td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -110,16 +116,21 @@
                                     <thead>
                                         <tr>
                                             <th>Sl</th>
+                                            <th>Payment Date</th>
                                             <th>Amount</th>
                                             <th>Payment mode</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($ExhibitionFees as $key=> $item)
                                         <tr>
-                                            <td>1</td>
-                                            <td>₹1000</td>
-                                            <td>Cash</td>
+                                            <td>{{$key+1}}</td>
+                                            <td>{{$item->payment_date}}</td>
+                                            <td>₹{{$item->payment_amount}}</td>
+                                            
+                                            <td>{{$item->payment_mode}}</td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -130,18 +141,23 @@
                                     <thead>
                                         <tr>
                                             <th>Sl</th>
-                                            <th>Amount</th>
-                                            <th>Payment date</th>
-                                            <th>Payment mode</th>
+                                            <th>Date</th>
+                                            <th>Travel Mode</th>
+                                            <th>Flight Number</th>
+                                            <th>Expense Cost</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($ExhibitionCommission as $key=> $item)
                                         <tr>
-                                            <td>1</td>
-                                            <td>₹1000</td>
-                                            <td>10/04/2024</td>
-                                            <td>Cash</td>
+                                            <td>{{$key+1}}</td>
+                                            <td>{{$item->date}}</td>
+                                            <td>{{$item->travel_mode}}</td>
+                                            
+                                            <td>{{$item->flight_number}}</td>
+                                            <td>₹{{$item->expenses_cost}}</td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

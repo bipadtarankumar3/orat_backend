@@ -5,6 +5,18 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+
+use App\Models\ExhibitionTravel;
+use App\Models\ExhibitionCommission;
+use App\Models\ExhibitionFees;
+use App\Models\ExhibitionFood;
+use App\Models\ExhibitionHotel;
+use App\Models\ExhibitionOtherCurrier;
+use App\Models\ExhibitionOtherFabrication;
+use App\Models\ExhibitionOtherFabricationCharge;
+use App\Models\ExhibitionOtherMiscExpenses;
+use App\Models\ExhibitionOtherStall;
+
 class ExhibitionController extends Controller
 {
 
@@ -40,22 +52,50 @@ class ExhibitionController extends Controller
 
     public function model_list(){
         $data['title']='Exhibition model';
+
+        $data['ExhibitionTravel'] = ExhibitionTravel::where('exhibition_type','model')->get();
+        $data['ExhibitionCommission'] = ExhibitionCommission::where('exhibition_type','model')->get();
+        $data['ExhibitionFees'] = ExhibitionFees::where('exhibition_type','model')->get();
+        $data['ExhibitionFood'] = ExhibitionFood::where('exhibition_type','model')->get();
+        $data['ExhibitionHotel'] = ExhibitionHotel::where('exhibition_type','model')->get();
+
         return view('admin.pages.exhibition.model_list',$data);
     }
 
     public function staff_list(){
-        $data['title']='Exhibition model';
+
+        $data['ExhibitionTravel'] = ExhibitionTravel::where('exhibition_type','staff')->get();
+        $data['ExhibitionCommission'] = ExhibitionCommission::where('exhibition_type','staff')->get();
+        $data['ExhibitionFees'] = ExhibitionFees::where('exhibition_type','staff')->get();
+        $data['ExhibitionFood'] = ExhibitionFood::where('exhibition_type','staff')->get();
+        $data['ExhibitionHotel'] = ExhibitionHotel::where('exhibition_type','staff')->get();
+
+        $data['title']='Exhibition staff';
         return view('admin.pages.exhibition.staff_list',$data);
     }
 
     
     public function owner_list(){
-        $data['title']='Exhibition model';
+
+        $data['ExhibitionTravel'] = ExhibitionTravel::where('exhibition_type','owner')->get();
+        $data['ExhibitionCommission'] = ExhibitionCommission::where('exhibition_type','owner')->get();
+        $data['ExhibitionFees'] = ExhibitionFees::where('exhibition_type','owner')->get();
+        $data['ExhibitionFood'] = ExhibitionFood::where('exhibition_type','owner')->get();
+        $data['ExhibitionHotel'] = ExhibitionHotel::where('exhibition_type','owner')->get();
+
+        $data['title']='Exhibition owner';
         return view('admin.pages.exhibition.owner_list',$data);
     }
 
     public function others_list(){
-        $data['title']='Exhibition model';
+        $data['title']='Exhibition others';
+
+        $data['ExhibitionTravel'] = ExhibitionTravel::where('exhibition_type','owner')->get();
+        $data['ExhibitionCommission'] = ExhibitionCommission::where('exhibition_type','owner')->get();
+        $data['ExhibitionFees'] = ExhibitionFees::where('exhibition_type','owner')->get();
+        $data['ExhibitionFood'] = ExhibitionFood::where('exhibition_type','owner')->get();
+        $data['ExhibitionHotel'] = ExhibitionHotel::where('exhibition_type','owner')->get();
+
         return view('admin.pages.exhibition.others_list',$data);
     }
 
