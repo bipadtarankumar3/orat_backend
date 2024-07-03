@@ -181,6 +181,8 @@
   <script>
     var datatables = $(".datatables-table").DataTable();
   </script>
+
+  @yield('js')
   
 </body>
 

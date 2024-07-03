@@ -66,7 +66,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['App\Http\
     });
     Route::group(['prefix' => 'banner', 'as' => 'banner.'], function () {
         Route::get('list', [BannerController::class, 'bannerList']);
-        Route::get('add', [ReviewController::class, 'addreview']);
+        Route::get('add_banner', [ReviewController::class, 'add_banner']);
+        Route::get('delete/{id}', [ReviewController::class, 'delete']);
     });
     Route::group(['prefix' => 'reports', 'as' => 'reports.'], function () {
         Route::get('sales', [ReportsController::class, 'salesReport']);
