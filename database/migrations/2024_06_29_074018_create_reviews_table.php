@@ -13,7 +13,16 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
+            $table->integer('product_id')->nullable();
+            $table->integer('customer_id')->nullable();
+            $table->integer('review_star')->nullable();
+            $table->text('message')->nullable();
+            $table->date('review_date')->nullable();
+            $table->string('status')->default('pending');
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

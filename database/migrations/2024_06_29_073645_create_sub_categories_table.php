@@ -13,7 +13,15 @@ return new class extends Migration
     {
         Schema::create('sub_categories', function (Blueprint $table) {
             $table->id();
+            $table->integer('category_id')->nullable();
+            $table->string('sub_title')->nullable();
+            $table->string('sub_image')->nullable();
+            $table->text('sub_short_desc')->nullable();
+            $table->text('sub_desc')->nullable();
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
