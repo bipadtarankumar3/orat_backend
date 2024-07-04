@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->text('short_desc')->nullable();
             $table->text('desc')->nullable();
+            $table->string('status')->nullable();
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamps();

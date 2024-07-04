@@ -28,8 +28,24 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['App\Http\
     Route::group(['prefix' => 'product', 'as' => 'product.'], function () {
         Route::get('list', [ProductController::class, 'productList']);
         Route::get('add', [ProductController::class, 'addProduct']);
+
+        //--------------------- Category -----------------------
         Route::get('category', [ProductController::class, 'category']);
+        Route::get('add_category_form_html', [ProductController::class, 'add_category_form_html']);
+        Route::post('add_category', [ProductController::class, 'add_category']);
+        Route::get('edit_category', [ProductController::class, 'edit_category']);
+        Route::get('delete_category/{id}', [ProductController::class, 'delete_category']);
+        //--------------------- Category End -----------------------
+
+        //--------------------- Sub Category -----------------------
         Route::get('sub_category', [ProductController::class, 'sub_category']);
+        Route::get('add_sub_category_form_html', [ProductController::class, 'add_sub_category_form_html']);
+        Route::post('add_sub_category', [ProductController::class, 'add_sub_category']);
+        Route::get('edit_sub_category', [ProductController::class, 'edit_sub_category']);
+        Route::get('delete_sub_category/{id}', [ProductController::class, 'delete_sub_category']);
+        //--------------------- Sub Category End -----------------------
+
+
         Route::get('attributes', [ProductController::class, 'attributes']);
         Route::get('inventory', [ProductController::class, 'inventory']);
         Route::get('product_price', [ProductController::class, 'product_price']);
@@ -66,8 +82,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['App\Http\
     });
     Route::group(['prefix' => 'banner', 'as' => 'banner.'], function () {
         Route::get('list', [BannerController::class, 'bannerList']);
-        Route::get('add_banner', [ReviewController::class, 'add_banner']);
-        Route::get('delete/{id}', [ReviewController::class, 'delete']);
+        Route::get('add_banner_form_html', [BannerController::class, 'add_banner_form_html']);
+        Route::post('add_banner', [BannerController::class, 'add_banner']);
+        Route::get('edit_banner', [BannerController::class, 'edit_banner']);
+        Route::get('delete/{id}', [BannerController::class, 'delete']);
     });
     Route::group(['prefix' => 'reports', 'as' => 'reports.'], function () {
         Route::get('sales', [ReportsController::class, 'salesReport']);

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('sub_image')->nullable();
             $table->text('sub_short_desc')->nullable();
             $table->text('sub_desc')->nullable();
+            $table->string('status')->nullable();
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamps();

@@ -64,6 +64,12 @@
     {{-- <script src="{{ URL::to('public/assets/admin/vendor/js/template-customizer.js')}}"></script> --}}
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ URL::to('public/assets/admin/js/config.js')}}"></script>
+
+    
+    <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     
 </head>
 
@@ -125,7 +131,7 @@
   <script src="{{ URL::to('public/assets/admin/vendor/js/bootstrap.js')}}"></script>
   <script src="{{ URL::to('public/assets/admin/vendor/libs/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
   <script src="{{ URL::to('public/assets/admin/vendor/libs/hammer/hammer.js')}}"></script>
-  <script src="{{ URL::to('public/assets/admin/vendor/libs/i18n/i18n.js')}}"></script>
+  {{-- <script src="{{ URL::to('public/assets/admin/vendor/libs/i18n/i18n.js')}}"></script> --}}
   <script src="{{ URL::to('public/assets/admin/vendor/libs/typeahead-js/typeahead.js')}}"></script>
   <script src="{{ URL::to('public/assets/admin/vendor/js/menu.js')}}"></script>
   
@@ -166,11 +172,11 @@
   <script src="{{ URL::to('public/assets/admin/js/app-ecommerce-dashboard.js')}}"></script>
   <script src="{{ URL::to('public/assets/admin/js/app-ecommerce-product-list.js')}}"></script>
   <script src="{{ URL::to('public/assets/admin/js/app-ecommerce-product-add.js')}}"></script>
-  <script src="{{ URL::to('public/assets/admin/js/app-ecommerce-customer-all.js')}}"></script>
+  {{-- <script src="{{ URL::to('public/assets/admin/js/app-ecommerce-customer-all.js')}}"></script> --}}
   <script src="{{ URL::to('public/assets/admin/js/app-ecommerce-order-list.js')}}"></script>
-  <script src="{{ URL::to('public/assets/admin/js/app-ecommerce-customer-all.js')}}"></script>
+  {{-- <script src="{{ URL::to('public/assets/admin/js/app-ecommerce-customer-all.js')}}"></script> --}}
 
-  <script src="{{ URL::to('public/assets/admin/js/app-ecommerce-order-details.js')}}"></script>
+  {{-- <script src="{{ URL::to('public/assets/admin/js/app-ecommerce-order-details.js')}}"></script> --}}
   <script src="{{ URL::to('public/assets/admin/js/modal-add-new-address.js')}}"></script>
   <script src="{{ URL::to('public/assets/admin/js/modal-edit-user.js')}}"></script>
 
@@ -178,8 +184,101 @@
   <script src="{{ URL::to('public/assets/admin/js/extended-ui-star-ratings.js')}}"></script>
   
 
+
   <script>
     var datatables = $(".datatables-table").DataTable();
+  </script>
+
+  <script>
+    function deleteConfirmation(ev) {
+
+ev.preventDefault();
+var urlToRedirect = ev.currentTarget.getAttribute(
+    'href'
+);
+
+Swal.fire({
+            title: 'Success!',
+            text: 'Your form has been submitted.',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Reload the page
+                window.location.reload();
+            }
+        });
+
+swal({
+    title: "Delete?",
+    text: "Please ensure and then confirm!",
+    type: "warning",
+    showCancelButton: !0,
+    confirmButtonText: "Yes, delete it!",
+    cancelButtonText: "No, cancel!",
+    reverseButtons: !0
+}).then(function(e) {
+
+    if (e.value === true) {
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+        $.ajax({
+            type: 'POST',
+            url: urlToRedirect,
+            data: {
+                _token: CSRF_TOKEN
+            },
+            dataType: 'JSON',
+            success: function(results) {
+
+                if (results.success === true) {
+                    swal("Done!", results.message, "success");
+                    setTimeout(() => {
+                        location.reload(true);
+                    }, 1000);
+                } else {
+                    swal("Error!", results.message, "error");
+                }
+            }
+        });
+
+    } else {
+        e.dismiss;
+    }
+
+}, function(dismiss) {
+    return false;
+})
+}
+
+function deleteConfirmationGet(ev) {
+
+ev.preventDefault();
+var urlToRedirect = ev.currentTarget.getAttribute(
+    'href'
+);
+
+Swal.fire({
+    title: "Submit Form?",
+    text: "Please ensure and then confirm!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonText: "Yes, submit it!",
+    cancelButtonText: "No, cancel!",
+    reverseButtons: true
+}).then(function(result) {
+
+    if (result.isConfirmed) {
+        window.location.href = urlToRedirect;
+
+    } else {
+        e.dismiss;
+    }
+
+}, function(dismiss) {
+    return false;
+})
+}
   </script>
 
   @yield('js')

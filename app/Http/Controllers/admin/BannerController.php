@@ -23,24 +23,17 @@ class BannerController extends Controller
         return view('admin.pages.banner.banner_list',$data);
     }
 
-    public function add_banner(Request $request){
-        // dd($request->all());
-        // $validator = Validator::make($request->all(), [
-        //     'cl_client_name' => 'required'
-        // ]);
+    public function add_banner_form_html(){
 
-        // if($validator->fails()){
-        //     return $this->sendError('Validation Error.', $validator->errors());       
-        // }
+        return view('admin.pages.banner.banner_form_html');
+    }
+
+    public function add_banner(Request $request){
 
         if ($request->banner_id !='') {
-            $c_image ='';
-            
-            //$client =  client::find($id);
-            //$client =  client::where('id',$request->id)->delete();
+
             $Banner = Banner::findOrFail($request->banner_id);
             $Banner->title = '';
-            
             if (isset($request->document) && !empty($request->document)) {
                 if ($request->hasFile('document')) {
                     $c_image=$request->file('document');
@@ -48,10 +41,10 @@ class BannerController extends Controller
                     $name=$c_image->getClientOriginalName();
                     $actual_name=str_replace(" ","_",$name);
                     $uploadName=$milisecond."_".$actual_name;
-                    $c_image->move(public_path().'/upload/',$uploadName);
-                    $url = asset('public/upload/'.$uploadName);
+                    $c_image->move(public_path().'/upload/banner/',$uploadName);
+                    $url = asset('public/upload/banner/'.$uploadName);
                     $c_image = $uploadName;
-                    $Banner->banner_image = $c_image;
+                    $Banner->banner_image = $url;
                 }
             }
             $Banner->updated_by = Auth::user()->id;
@@ -65,17 +58,15 @@ class BannerController extends Controller
                     $name=$c_image->getClientOriginalName();
                     $actual_name=str_replace(" ","_",$name);
                     $uploadName=$milisecond."_".$actual_name;
-                    $c_image->move(public_path().'/upload/',$uploadName);
-                    $url = asset('public/upload/'.$uploadName);
+                    $c_image->move(public_path().'/upload/banner/',$uploadName);
+                    $url = asset('public/upload/banner/'.$uploadName);
                     $c_image = $uploadName;
                 }
             }
-            //$client =  client::find($id);
-            //$client =  client::where('id',$request->id)->delete();
             $Banner = new Banner();
             $Banner->title = '';
             $Banner->created_by = Auth::user()->id;
-            $Banner->banner_image = $c_image;
+            $Banner->banner_image = $url;
             $Banner->save();
         }
         
@@ -85,6 +76,15 @@ class BannerController extends Controller
         else{ 
             return $this->sendError('Insert Error.', ['error'=>'Banner is not inserted']);
         } 
+    }
+
+    public function edit_banner(Request $request){
+
+        $data['form_id'] = $form_id = $request->form_id;
+     
+        $data['Banner'] = Banner::where('id', $form_id)->first();
+        
+        return view('admin.pages.banner.banner_form_html',$data);
     }
 
     public function delete($id){
