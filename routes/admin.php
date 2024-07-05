@@ -122,10 +122,19 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['App\Http\
 
     Route::group(['prefix' => 'discount', 'as' => 'discount.'], function () {
         Route::get('list', [DiscountController::class, 'discountList']);
+        Route::get('add_discount_form_html', [DiscountController::class, 'add_discount_form_html']);
+        Route::post('add_discount', [DiscountController::class, 'add_discount']);
+        Route::get('edit_discount', [DiscountController::class, 'edit_discount']);
+        Route::get('delete_discount/{id}', [DiscountController::class, 'delete_discount']);
     });
 
     Route::group(['prefix' => 'gift', 'as' => 'gift.'], function () {
         Route::get('list', [GiftController::class, 'giftList']);
+        Route::get('add_gift_form_html', [GiftController::class, 'add_gift_form_html']);
+        Route::post('add_gift', [GiftController::class, 'add_gift']);
+        Route::get('edit_gift', [GiftController::class, 'edit_gift']);
+        Route::get('delete_gift/{id}', [GiftController::class, 'delete_gift']);
+     
     });
 
     Route::group(['prefix' => 'setting', 'as' => 'setting.'], function () {

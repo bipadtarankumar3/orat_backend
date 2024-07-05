@@ -18,7 +18,7 @@
       <div class="card">
         <div class="row my-4">
           <div class="col-md-12 float-right text-right" style="text-align: right">
-             <button class="btn btn-secondary add-new btn-primary ms-2" tabindex="0" aria-controls="DataTables_Table_0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasEcommerceCategoryList">
+             <button  onclick="showModalForm()"  class="btn btn-secondary add-new btn-primary ms-2" tabindex="0" aria-controls="DataTables_Table_0" type="button" data-bs-toggle="offcanvas">
               <span><i class="bx bx-plus me-0 me-sm-1"></i>Add Coupon</span>
             </button>
           </div>
@@ -40,105 +40,131 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>PUJO SPECIAL</td>
-                <td>SPEL001</td>
-                <td>100</td>
-                <td>SPECIAL</td>
-                <td>10%</td>
-                <td>10/10/2024</td>
-                <td>10/12/2024</td>
-                
-                <td class="text-end">
-                  <div class="dropdown pe-3">
-                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-dots-vertical-rounded"></i></button>
-                    <div class="dropdown-menu" style="">
-                      {{-- <a class="dropdown-item" href="http://localhost/orat_backend/admin/order/details"><i class="bx bx-edit-alt me-1"></i> View</a> --}}
-                      <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-edit-alt me-1"></i> Edit</a>
-                      <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
-                    </div>
-                  </div>
-                </td>
-              </tr>
+              @foreach ($list as $key=> $item)
+                <tr>
+                    <td>{{$key+1}}</td>
+                    <td>{{$item->coupon_name}}</td>
+                    <td>{{$item->coupon_code}}</td>
+                    <td>{{$item->coupon_limit}}</td>
+                    <td>{{$item->coupon_type}}</td>
+                    <td>{{$item->discount	}}</td>
+                    <td>{{$item->start_date	}}</td>
+                    <td>{{$item->end_date	}}</td>
+                    {{-- <td>02/02/2024</td> --}}
+                    <td class="text-end">
+                        <div class="dropdown pe-3">
+                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
+                                data-bs-toggle="dropdown" aria-expanded="false"><i
+                                    class="bx bx-dots-vertical-rounded"></i></button>
+                            <div class="dropdown-menu" style="">
+                                {{-- <a class="dropdown-item" href="http://localhost/orat_backend/admin/order/details"><i class="bx bx-edit-alt me-1"></i> View</a> --}}
+                                <a onclick="editForm('{{$item->id}}')" class="dropdown-item" href="javascript:void(0);"><i
+                                        class="bx bx-edit-alt me-1"></i> Edit</a>
+                                <a class="dropdown-item" href="{{ URL::to('admin/discount/delete_discount', $item->id) }}" onclick="deleteConfirmationGet(event)">
+                                    <i class="bx bx-trash me-1"></i> Delete
+                                </a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+              @endforeach
             </tbody>
           </table>
         </div>
       </div>
       <!-- Offcanvas to add new customer -->
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasEcommerceCategoryList" aria-labelledby="offcanvasEcommerceCategoryListLabel">
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="addModal" aria-labelledby="addModalLabel">
         <!-- Offcanvas Header -->
         <div class="offcanvas-header py-4">
-          <h5 id="offcanvasEcommerceCategoryListLabel" class="offcanvas-title">Add Category</h5>
-          <button type="button" class="btn-close bg-label-secondary text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <h5 id="addModalLabel" class="offcanvas-title">Add Category</h5>
+          <button  onclick="closeModal('addModal')"  type="button" class="btn-close bg-label-secondary text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <!-- Offcanvas Body -->
-        <div class="offcanvas-body border-top">
-          <form class="pt-0" id="eCommerceCategoryListForm" onsubmit="return true">
-            <!-- Title -->
-            <div class="mb-3">
-              <label class="form-label" for="ecommerce-category-title">Coupon Name</label>
-              <input type="text" class="form-control" id="ecommerce-category-title" placeholder="Enter Coupon Name" name="categoryTitle" aria-label="category title">
-            </div>
-            <div class="mb-3">
-              <label class="form-label" for="ecommerce-category-title">Create coupon code</label>
-              <input type="text" class="form-control" id="ecommerce-category-title" placeholder="Enter coupon code" name="categoryTitle" aria-label="category title">
-            </div>
-            <div class="mb-3">
-              <label class="form-label" for="ecommerce-category-title">Coupon Limit</label>
-              <input type="text" class="form-control" id="ecommerce-category-title" placeholder="Enter Coupon Limit" name="categoryTitle" aria-label="category title">
-            </div>
-            <div class="mb-3">
-              <label class="form-label" for="ecommerce-category-title">Coupon type</label>
-              <input type="text" class="form-control" id="ecommerce-category-title" placeholder="Enter Coupon type" name="categoryTitle" aria-label="category title">
-            </div>
-            <div class="mb-3">
-              <label class="form-label" for="ecommerce-category-title">Discount</label>
-              <input type="text" class="form-control" id="ecommerce-category-title" placeholder="Enter Discount" name="categoryTitle" aria-label="category title">
-            </div>
-            <div class="mb-3">
-              <label class="form-label" for="ecommerce-category-title">Start Date</label>
-              <input type="date" class="form-control" id="ecommerce-category-title" placeholder="Enter Start Date" name="categoryTitle" aria-label="category title">
-            </div>
-            <div class="mb-3">
-              <label class="form-label" for="ecommerce-category-title">End Date</label>
-              <input type="date" class="form-control" id="ecommerce-category-title" placeholder="Enter End Date" name="categoryTitle" aria-label="category title">
-            </div>
-
-            <!-- Parent category -->
-            {{-- <div class="mb-3 ecommerce-select2-dropdown">
-              <label class="form-label" for="ecommerce-category-parent-category">Parent category</label>
-              <select id="ecommerce-category-parent-category" class="select2 form-select" data-placeholder="Select parent category">
-                <option value="">Select parent Category</option>
-                <option value="Household">Household</option>
-                <option value="Management">Management</option>
-                <option value="Electronics">Electronics</option>
-                <option value="Office">Office</option>
-                <option value="Automotive">Automotive</option>
-              </select>
-            </div> --}}
+        <div class="offcanvas-body border-top"  id="modal_form_box">
           
-            <!-- Status -->
-            <div class="mb-4 ecommerce-select2-dropdown">
-              <label class="form-label">Select category status</label>
-              <select id="ecommerce-category-status" class="select2 form-select" data-placeholder="Select category status">
-                <option value="">Select category status</option>
-                <option value="Publish">Publish</option>
-                <option value="Inactive">Inactive</option>
-              </select>
-            </div>
-            <!-- Submit and reset -->
-            <div class="mb-3">
-              <button type="submit" class="btn btn-primary me-sm-3 me-1 data-submit">Add</button>
-              <button type="reset" class="btn bg-label-danger" data-bs-dismiss="offcanvas">Discard</button>
-            </div>
-          </form>
         </div>
       </div>
     </div>
     
-              </div>
+</div>
 
 
               
+@endsection
+
+
+@section('js')
+
+    <script>
+        function showModalForm() {
+            $.ajax({
+                url: "{{URL::to('admin/discount/add_discount_form_html')}}", // Replace with your listing URL
+                type: 'GET',
+                data:{form_id:''},
+                success: function(response) {
+                    // Update your listing element with the new data
+                    $('#modal_form_box').html(response); // Assuming you have an element with ID listingElement
+                    $('#addModal').addClass('show'); // Assuming you have an element with ID listingElement
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+        function closeModal(modalId) {
+            $('#'+modalId).removeClass('show');
+        }
+
+        function submit_form() {
+            var discountForm = $('#discountForm')[0];
+            // Create a FormData object to hold the form data
+            var formData = new FormData(discountForm);
+
+            // Get the CSRF token from the meta tag or hidden input field
+            var csrfToken = $('input[name="_token"]').val();
+
+            $.ajax({
+                url: "{{ URL::to('admin/discount/add_discount') }}", // Replace with your submit URL
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken // Set the CSRF token header
+                },
+                success: function(response) {
+                    if (response.success) {
+                        alert(response.message);
+                        window.location.reload();
+                    } else {
+                        alert("There was an issue with the submission.");
+                    }
+                },
+                error: function(xhr, status, error) {
+                    // Handle the error response here
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+    
+        function editForm(form_id) {
+            $.ajax({
+                url: "{{URL::to('admin/discount/edit_discount')}}", // Replace with your listing URL
+                type: 'GET',
+                data:{form_id:form_id},
+                success: function(response) {
+                    // Update your listing element with the new data
+                    $('#modal_form_box').html(response); // Assuming you have an element with ID listingElement
+                    $('#addModal').addClass('show'); // Assuming you have an element with ID listingElement
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        }
+
+    </script>
+    
 @endsection
