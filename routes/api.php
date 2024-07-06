@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\app_api\UserController;
 use App\Http\Controllers\app_api\ExhibitionController;
 
+use App\Http\Controllers\web_api\UserController as WebUserController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -41,5 +43,11 @@ Route::group(['prefix' => 'app', 'as' => 'app.'], function () {
 
 
 Route::group(['prefix' => 'web', 'as' => 'web.'], function () {
-    // Route::get('sales', [ReportsController::class, 'salesReport']);
+    Route::post('login', [WebUserController::class, 'login']);
+    Route::post('register', [WebUserController::class, 'register']);
+    
+    Route::middleware('auth:api')->group(function () {
+        Route::get('logout', [WebUserController::class, 'logout']);
+        Route::post('data', [WebUserController::class, 'data']);
+    });
 });
