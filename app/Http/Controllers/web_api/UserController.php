@@ -55,7 +55,7 @@ class UserController extends Controller
                 'success' => true,
                 'data' => [
                     'token' => $token,
-                    'name' => $user->name,
+                    'user' => $user,
                 ],
                 'message' => 'User login successfully.'
             ]);
