@@ -106,12 +106,20 @@ class ExhibitionController extends Controller
 
     public function exhibition_commission(Request $request){
 
+        // $create =  ExhibitionCommission::create([
+        //     'model_name' => $request->model_name,
+        //     'date' => $request->date,
+        //     'travel_mode' => $request->travel_mode,
+        //     'flight_number' => $request->flight_number,
+        //     'expenses_cost' => $request->expenses_cost,
+        //     'exhibition_type' => $request->exhibition_type,
+        //     'created_by' => Auth::user()->id,
+        // ]);
         $create =  ExhibitionCommission::create([
             'model_name' => $request->model_name,
-            'date' => $request->date,
-            'travel_mode' => $request->travel_mode,
-            'flight_number' => $request->flight_number,
-            'expenses_cost' => $request->expenses_cost,
+            'payment_date' => $request->payment_date,
+            'payment_mode' => $request->payment_mode,
+            'payment_amount' => $request->payment_amount,
             'exhibition_type' => $request->exhibition_type,
             'created_by' => Auth::user()->id,
         ]);
