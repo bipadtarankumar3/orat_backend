@@ -14,11 +14,10 @@ return new class extends Migration
         Schema::create('product_variants', function (Blueprint $table) {
             $table->id();
             $table->integer('product_id');
-            $table->text('attribute');
-            $table->text('attribute_value');
-            $table->text('variant');
-            $table->float('price');
-            $table->integer('quantity');
+            $table->text('product_zize');
+            $table->text('product_color');
+            $table->text('product_varient_price');
+            $table->float('product_fit_info');
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamps();

@@ -19,6 +19,12 @@ use DB;
 
 class ProductController extends Controller
 {
+    public function getSubCategories($category_id)
+    {
+        $subCategories = SubCategory::where('category_id', $category_id)->get();
+        return response()->json($subCategories);
+    }
+
     public function productList()
     {
         $data['title'] = 'product Lists';
@@ -29,7 +35,12 @@ class ProductController extends Controller
     {
         $data['title'] = 'product Add';
         $data['product_types']=ProductType::where('created_by',Auth::user()->id)->get();
+        $data['categories']=Category::where('created_by',Auth::user()->id)->get();
         return view('admin.pages.product.add_product', $data);
+    }
+
+    public function add_product_action(Request $request){
+        dd($request->all());
     }
 
     //----------------product type---------------
