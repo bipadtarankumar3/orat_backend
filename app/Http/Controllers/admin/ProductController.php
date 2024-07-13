@@ -52,7 +52,7 @@ class ProductController extends Controller
                     $actual_name=str_replace(" ","_",$name);
                     $uploadName=$milisecond."_".$actual_name;
                     $c_image->move(public_path().'/upload/category/',$uploadName);
-                    $url = asset('public/upload/category/'.$uploadName);
+                    $url = 'public/upload/category/'.$uploadName;
                     $c_image = $uploadName;
                     $category->image = $url;
                 }
@@ -70,7 +70,7 @@ class ProductController extends Controller
                     $actual_name=str_replace(" ","_",$name);
                     $uploadName=$milisecond."_".$actual_name;
                     $c_image->move(public_path().'/upload/category/',$uploadName);
-                    $url = asset('public/upload/category/'.$uploadName);
+                    $url = 'public/upload/category/'.$uploadName;
                     $c_image = $uploadName;
                 }
             }

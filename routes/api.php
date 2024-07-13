@@ -7,6 +7,7 @@ use App\Http\Controllers\app_api\UserController;
 use App\Http\Controllers\app_api\ExhibitionController;
 
 use App\Http\Controllers\web_api\UserController as WebUserController;
+use App\Http\Controllers\web_api\GeneralController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,12 @@ Route::group(['prefix' => 'app', 'as' => 'app.'], function () {
 
 
 Route::group(['prefix' => 'web', 'as' => 'web.'], function () {
+
+    //For frontend
+    Route::post('banner_list', [GeneralController::class, 'banner_list']);
+    Route::post('category_list', [GeneralController::class, 'category_list']);
+
+
     Route::post('login', [WebUserController::class, 'login']);
     Route::post('register', [WebUserController::class, 'register']);
     
