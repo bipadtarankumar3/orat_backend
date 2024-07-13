@@ -16,6 +16,8 @@ use App\Models\admin\Banner;
 use App\Models\admin\Category;
 use App\Models\admin\SubCategory;
 
+use App\Models\admin\Designer;
+
 class GeneralController extends Controller
 {
     public function banner_list(){
@@ -38,6 +40,24 @@ class GeneralController extends Controller
             'success' => true,
             'data' => $Category,
             'message' => 'Category List'
+        ]);
+
+    }
+
+    public function designer_list(Request $request){
+  
+        if (isset($request->limit)) {
+            $limit = $request->limit;
+        } else {
+            $limit = 10;
+        }
+        
+        $Designer = Designer::where('designer_status','publish')->limit($limit)->get();
+
+        return response()->json([
+            'success' => true,
+            'data' => $Designer,
+            'message' => 'Designer List'
         ]);
 
     }

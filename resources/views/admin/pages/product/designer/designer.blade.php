@@ -6,17 +6,17 @@
 
 
         <h4 class="py-3 mb-4">
-            <span class="text-muted fw-light">eCommerce /</span> Category List
+            <span class="text-muted fw-light">eCommerce /</span> Designer List
         </h4>
 
-        <div class="app-ecommerce-category">
-            <!-- Category List Table -->
+        <div class="app-ecommerce-designer">
+            <!-- designer List Table -->
             <div class="card">
                 <div class="row my-4">
                     <div class="col-md-12 float-right text-right" style="text-align: right">
                         <button   onclick="showModalForm()" class="btn btn-secondary add-new btn-primary ms-2" tabindex="0"
                             aria-controls="DataTables_Table_0" type="button">
-                            <span><i class="bx bx-plus me-0 me-sm-1"></i>Add Category</span>
+                            <span><i class="bx bx-plus me-0 me-sm-1"></i>Add designer</span>
                         </button>
                     </div>
                 </div>
@@ -26,27 +26,28 @@
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>Categories</th>
-                                <th class="text-nowrap">Icon</th>
-                                <th class="text-nowrap">Thumbnail</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th class="text-nowrap">Image</th>
                                 <th class="text-nowrap">Cover</th>
+                                <th class="text-nowrap">Status</th>
                                 <th class="text-lg-center">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($category as $key=> $item)
+                            @foreach ($designer as $key=> $item)
                                 <tr>
                                     <td>{{$key+1}}</td>
-                                    <td>{{$item->title}}</td>
+                                    <td>{{$item->designer_name}}</td>
+                                    <td>{{$item->designer_description}}</td>
                                     <td>
-                                        <img src="{{URL::to($item->icon)}}" alt="category" style="width: 100px;">
+                                        <img src="{{URL::to($item->designer_thumbnail)}}" alt="designer" style="width: 100px;">
                                     </td>
                                     <td>
-                                        <img src="{{URL::to($item->thumbnail)}}" alt="category" style="width: 100px;">
+                                        <img src="{{URL::to($item->designer_cover)}}" alt="designer" style="width: 100px;">
                                     </td>
-                                    <td>
-                                        <img src="{{URL::to($item->cover)}}" alt="category" style="width: 100px;">
-                                    </td>
+                                    
+                                    <td>{{$item->designer_status}}</td>
                                     {{-- <td>02/02/2024</td> --}}
                                     <td class="text-end">
                                         <div class="dropdown pe-3">
@@ -54,10 +55,9 @@
                                                 data-bs-toggle="dropdown" aria-expanded="false"><i
                                                     class="bx bx-dots-vertical-rounded"></i></button>
                                             <div class="dropdown-menu" style="">
-                                                {{-- <a class="dropdown-item" href="http://localhost/orat_backend/admin/order/details"><i class="bx bx-edit-alt me-1"></i> View</a> --}}
                                                 <a onclick="editForm('{{$item->id}}')" class="dropdown-item" href="javascript:void(0);"><i
                                                         class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                <a class="dropdown-item" href="{{ URL::to('admin/product/delete_category', $item->id) }}" onclick="deleteConfirmationGet(event)">
+                                                <a class="dropdown-item" href="{{ URL::to('admin/product/delete_designer', $item->id) }}" onclick="deleteConfirmationGet(event)">
                                                     <i class="bx bx-trash me-1"></i> Delete
                                                 </a>
                                             </div>
@@ -70,12 +70,12 @@
                 </div>
             </div>
             <!-- Offcanvas to add new customer -->
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="categoryAddModal"
-                aria-labelledby="categoryAddModalLabel">
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="designerAddModal"
+                aria-labelledby="designerAddModalLabel">
                 <!-- Offcanvas Header -->
                 <div class="offcanvas-header py-4">
-                    <h5 id="categoryAddModalLabel" class="offcanvas-title">Add Category</h5>
-                    <button onclick="closeModal('categoryAddModal')" type="button" class="btn-close bg-label-secondary text-reset" data-bs-dismiss="offcanvas"
+                    <h5 id="designerAddModalLabel" class="offcanvas-title">Add Category</h5>
+                    <button onclick="closeModal('designerAddModal')" type="button" class="btn-close bg-label-secondary text-reset" data-bs-dismiss="offcanvas"
                         aria-label="Close"></button>
                 </div>
                 <!-- Offcanvas Body -->
@@ -95,13 +95,13 @@
     <script>
         function showModalForm() {
             $.ajax({
-                url: "{{URL::to('admin/product/add_category_form_html')}}", // Replace with your listing URL
+                url: "{{URL::to('admin/product/add_designer_form_html')}}", // Replace with your listing URL
                 type: 'GET',
                 data:{form_id:''},
                 success: function(response) {
                     // Update your listing element with the new data
                     $('#modal_form_box').html(response); // Assuming you have an element with ID listingElement
-                    $('#categoryAddModal').addClass('show'); // Assuming you have an element with ID listingElement
+                    $('#designerAddModal').addClass('show'); // Assuming you have an element with ID listingElement
                 },
                 error: function(xhr, status, error) {
                     console.error('Error:', error);
@@ -114,15 +114,15 @@
         }
 
         function submit_form() {
-            var categoryForm = $('#categoryForm')[0];
+            var designerForm = $('#designerForm')[0];
             // Create a FormData object to hold the form data
-            var formData = new FormData(categoryForm);
+            var formData = new FormData(designerForm);
 
             // Get the CSRF token from the meta tag or hidden input field
             var csrfToken = $('input[name="_token"]').val();
 
             $.ajax({
-                url: "{{ URL::to('admin/product/add_category') }}", // Replace with your submit URL
+                url: "{{ URL::to('admin/product/add_designer') }}", // Replace with your submit URL
                 type: 'POST',
                 data: formData,
                 processData: false,
@@ -148,13 +148,13 @@
     
         function editForm(form_id) {
             $.ajax({
-                url: "{{URL::to('admin/product/edit_category')}}", // Replace with your listing URL
+                url: "{{URL::to('admin/product/edit_designer')}}", // Replace with your listing URL
                 type: 'GET',
                 data:{form_id:form_id},
                 success: function(response) {
                     // Update your listing element with the new data
                     $('#modal_form_box').html(response); // Assuming you have an element with ID listingElement
-                    $('#categoryAddModal').addClass('show'); // Assuming you have an element with ID listingElement
+                    $('#designerAddModal').addClass('show'); // Assuming you have an element with ID listingElement
                 },
                 error: function(xhr, status, error) {
                     console.error('Error:', error);

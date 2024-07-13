@@ -10,8 +10,22 @@
 
     <!-- Image -->
     <div class="mb-3">
-        <label class="form-label" for="document">Attachment</label>
+        <label class="form-label" for="document">Icon</label>
         <input class="form-control" type="file" accept="image/png, image/gif, image/jpeg" id="document" name="document">
+        @if (isset($form_id))
+        <img src="{{URL::to($editData->icon)}}" alt="icon" style="width: 100px;">
+        @endif
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="thumbnail">Thumbnail</label>
+        <input class="form-control" type="file" accept="image/png, image/gif, image/jpeg" id="thumbnail" name="thumbnail">
+        @if (isset($form_id))
+        <img src="{{URL::to($editData->image)}}" alt="banner" style="width: 100px;">
+        @endif
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="cover">Cover</label>
+        <input class="form-control" type="file" accept="image/png, image/gif, image/jpeg" id="cover" name="cover">
         @if (isset($form_id))
         <img src="{{URL::to($editData->image)}}" alt="banner" style="width: 100px;">
         @endif
@@ -20,10 +34,10 @@
 
     <!-- Status -->
     <div class="mb-4 ecommerce-select2-dropdown">
-        <label class="form-label">Select category status</label>
-        <select name="status" id="ecommerce-category-status" class="select2 form-select"
-            data-placeholder="Select category status">
-            <option value="">Select category status</option>
+        <label class="form-label">Select status</label>
+        <select name="status" id="ecommerce-status" class="select2 form-select"
+            data-placeholder="Select status">
+            <option value="">Select status</option>
             <option value="publish" @if(isset($form_id)) @if($editData->status == 'publish') selected @endif @endif>Publish</option>
             <option value="inactive" @if(isset($form_id)) @if($editData->status == 'inactive') selected @endif @endif>Inactive</option>
         </select>

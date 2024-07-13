@@ -48,6 +48,7 @@ Route::group(['prefix' => 'web', 'as' => 'web.'], function () {
     //For frontend
     Route::post('banner_list', [GeneralController::class, 'banner_list']);
     Route::post('category_list', [GeneralController::class, 'category_list']);
+    Route::post('designer_list', [GeneralController::class, 'designer_list']);
 
 
     Route::post('login', [WebUserController::class, 'login']);

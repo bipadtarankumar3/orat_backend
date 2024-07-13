@@ -73,6 +73,11 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
+                    <a href="{{ URL::to('admin/product/designer') }}" class="menu-link">
+                        <div class="text-truncate" data-i18n="Product List">Designer</div>
+                    </a>
+                </li>
+                <li class="menu-item">
                     <a href="{{ URL::to('admin/product/type') }}" class="menu-link">
                         <div class="text-truncate" data-i18n="Product List">Product Type</div>
                     </a>

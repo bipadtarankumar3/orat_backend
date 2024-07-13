@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\admin\AdminAuthController;
 use App\Http\Controllers\admin\BannerController;
+use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\CustomerController;
 use App\Http\Controllers\admin\OrderController;
@@ -16,6 +17,7 @@ use App\Http\Controllers\admin\DiscountController;
 use App\Http\Controllers\admin\ExhibitionController;
 use App\Http\Controllers\admin\GiftController;
 use App\Http\Controllers\admin\ReportsController;
+use App\Http\Controllers\admin\DesignerController;
 
 Route::get('login', [AdminAuthController::class, 'login'])->name('login');
 Route::post('admin-login-action', [AdminAuthController::class, 'adminLoginAction']);
@@ -38,20 +40,28 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['App\Http\
         Route::get('edit_product_type', [ProductController::class, 'edit_product_type']);
         Route::get('delete_product_type/{id}', [ProductController::class, 'delete_product_type']);
 
+        //--------------------- Designer -----------------------
+        Route::get('designer', [DesignerController::class, 'designer']);
+        Route::get('add_designer_form_html', [DesignerController::class, 'add_designer_form_html']);
+        Route::post('add_designer', [DesignerController::class, 'add_designer']);
+        Route::get('edit_designer', [DesignerController::class, 'edit_designer']);
+        Route::get('delete_designer/{id}', [DesignerController::class, 'delete_designer']);
+        //--------------------- Designer End -----------------------
+
         //--------------------- Category -----------------------
-        Route::get('category', [ProductController::class, 'category']);
-        Route::get('add_category_form_html', [ProductController::class, 'add_category_form_html']);
-        Route::post('add_category', [ProductController::class, 'add_category']);
-        Route::get('edit_category', [ProductController::class, 'edit_category']);
-        Route::get('delete_category/{id}', [ProductController::class, 'delete_category']);
+        Route::get('category', [CategoryController::class, 'category']);
+        Route::get('add_category_form_html', [CategoryController::class, 'add_category_form_html']);
+        Route::post('add_category', [CategoryController::class, 'add_category']);
+        Route::get('edit_category', [CategoryController::class, 'edit_category']);
+        Route::get('delete_category/{id}', [CategoryController::class, 'delete_category']);
         //--------------------- Category End -----------------------
 
         //--------------------- Sub Category -----------------------
-        Route::get('sub_category', [ProductController::class, 'sub_category']);
-        Route::get('add_sub_category_form_html', [ProductController::class, 'add_sub_category_form_html']);
-        Route::post('add_sub_category', [ProductController::class, 'add_sub_category']);
-        Route::get('edit_sub_category', [ProductController::class, 'edit_sub_category']);
-        Route::get('delete_sub_category/{id}', [ProductController::class, 'delete_sub_category']);
+        Route::get('sub_category', [CategoryController::class, 'sub_category']);
+        Route::get('add_sub_category_form_html', [CategoryController::class, 'add_sub_category_form_html']);
+        Route::post('add_sub_category', [CategoryController::class, 'add_sub_category']);
+        Route::get('edit_sub_category', [CategoryController::class, 'edit_sub_category']);
+        Route::get('delete_sub_category/{id}', [CategoryController::class, 'delete_sub_category']);
         //--------------------- Sub Category End -----------------------
 
 

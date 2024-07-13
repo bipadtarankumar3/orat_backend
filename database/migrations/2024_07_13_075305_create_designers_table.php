@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('designers', function (Blueprint $table) {
             $table->id();
+            $table->text('designer_name')->nullable();
+            $table->text('designer_description')->nullable();
+            $table->text('designer_thumbnail')->nullable();
+            $table->text('designer_cover')->nullable();
+            $table->string('designer_status')->nullable();
+            $table->integer('created_by')->nullable();
+            $table->integer('updated_by')->nullable();
             $table->timestamps();
         });
     }
