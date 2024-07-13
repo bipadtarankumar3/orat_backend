@@ -13,34 +13,98 @@ use Config;
 use Mail;
 use File;
 use App\Mail\ClientMail;
+use App\Models\ProductType;
 use DB;
 
 
 class ProductController extends Controller
 {
-    public function productList(){
-        $data['title']='product Lists';
-        return view('admin.pages.product.product_list',$data);
-    }
-    public function addProduct(){
-        $data['title']='product Add';
-        return view('admin.pages.product.add_product',$data);
+    public function productList()
+    {
+        $data['title'] = 'product Lists';
+        return view('admin.pages.product.product_list', $data);
     }
 
-    //------------------- Category --------
-    public function category(){
-        $data['title']='product Add';
-        $data['category'] = Category::get();
-        return view('admin.pages.product.category.category',$data);
+    public function addProduct()
+    {
+        $data['title'] = 'product Add';
+        $data['product_types']=ProductType::where('created_by',Auth::user()->id)->get();
+        return view('admin.pages.product.add_product', $data);
     }
-    public function add_category_form_html(){
+
+    //----------------product type---------------
+    public function productTypeList()
+    {
+        $data['title'] = 'product Type Lists';
+        $data['producttype'] = ProductType::get();
+        return view('admin.pages.product.product_type.product_Type_list', $data);
+    }
+    public function add_product_type_form_html()
+    {
+        $data['title'] = 'product Type Lists';
+        $data['producttype'] = ProductType::get();
+        return view('admin.pages.product.product_type.product_type_form_html', $data);
+    }
+
+    public function add_product_type(Request $request)
+    {
+
+        if ($request->edit_id != '') {
+
+            $product_type = ProductType::findOrFail($request->edit_id);
+            $product_type->name = $request->name;
+           
+            $product_type->updated_by = Auth::user()->id;
+           
+            $product_type->save();
+        } else {
+            $url = '';
+         
+            $product_type = new ProductType();
+            $product_type->name = $request->name;
+            $product_type->created_by = Auth::user()->id;
+            
+            $product_type->save();
+        }
+
+        if ($product_type) {
+            return $this->sendResponse($product_type, 'product_type Added Successfully');
+        } else {
+            return $this->sendError('Insert Error.', ['error' => 'product_type is not inserted']);
+        }
+    }
+    public function edit_product_type(Request $request)
+    {
+
+        $data['form_id'] = $form_id = $request->form_id;
+
+        $data['editData'] = ProductType::where('id', $form_id)->first();
+
+        return view('admin.pages.product.product_type.product_type_form_html', $data);
+    }
+    public function delete_product_type($id)
+    {
+
+        $data['category'] = ProductType::where('id', $id)->delete();
+        return redirect()->back();
+    }
+    //------------------- Category --------
+    public function category()
+    {
+        $data['title'] = 'product Add';
+        $data['category'] = Category::get();
+        return view('admin.pages.product.category.category', $data);
+    }
+    public function add_category_form_html()
+    {
 
         return view('admin.pages.product.category.category_form_html');
     }
 
-    public function add_category(Request $request){
+    public function add_category(Request $request)
+    {
 
-        if ($request->edit_id !='') {
+        if ($request->edit_id != '') {
 
             $category = Category::findOrFail($request->edit_id);
             $category->title = $request->title;
@@ -52,7 +116,7 @@ class ProductController extends Controller
                     $actual_name=str_replace(" ","_",$name);
                     $uploadName=$milisecond."_".$actual_name;
                     $c_image->move(public_path().'/upload/category/',$uploadName);
-                    $url = 'public/upload/category/'.$uploadName;
+                    $url = asset('public/upload/category/'.$uploadName);
                     $c_image = $uploadName;
                     $category->image = $url;
                 }
@@ -61,7 +125,7 @@ class ProductController extends Controller
             $category->status = $request->status;
             $category->save();
         } else {
-            $url ='';
+            $url = '';
             if (isset($request->document) && !empty($request->document)) {
                 if ($request->hasFile('document')) {
                     $c_image=$request->file('document');
@@ -70,7 +134,7 @@ class ProductController extends Controller
                     $actual_name=str_replace(" ","_",$name);
                     $uploadName=$milisecond."_".$actual_name;
                     $c_image->move(public_path().'/upload/category/',$uploadName);
-                    $url = 'public/upload/category/'.$uploadName;
+                    $url = asset('public/upload/category/'.$uploadName);
                     $c_image = $uploadName;
                 }
             }
@@ -81,59 +145,63 @@ class ProductController extends Controller
             $category->status = $request->status;
             $category->save();
         }
-        
+
         if ($category) {
             return $this->sendResponse($category, 'category Added Successfully');
-        } 
-        else{ 
-            return $this->sendError('Insert Error.', ['error'=>'category is not inserted']);
-        } 
+        } else {
+            return $this->sendError('Insert Error.', ['error' => 'category is not inserted']);
+        }
     }
 
-    public function edit_category(Request $request){
+    public function edit_category(Request $request)
+    {
 
         $data['form_id'] = $form_id = $request->form_id;
-     
+
         $data['editData'] = Category::where('id', $form_id)->first();
-        
-        return view('admin.pages.product.category.category_form_html',$data);
+
+        return view('admin.pages.product.category.category_form_html', $data);
     }
 
-    public function delete_category($id){
-     
-        $data['category'] = Category::where('id',$id)->delete();
+    public function delete_category($id)
+    {
+
+        $data['category'] = Category::where('id', $id)->delete();
         return redirect()->back();
     }
     //-------------------End Category --------
 
     //------------------- Sub Category --------
-    public function sub_category(){
-        $data['title']='product Add';
-        $data['category'] = SubCategory::select('sub_categories.*','categories.title')->leftjoin('categories','categories.id','sub_categories.category_id')->get();
-        return view('admin.pages.product.sub_category.sub_category',$data);
+    public function sub_category()
+    {
+        $data['title'] = 'product Add';
+        $data['category'] = SubCategory::select('sub_categories.*', 'categories.title')->leftjoin('categories', 'categories.id', 'sub_categories.category_id')->get();
+        return view('admin.pages.product.sub_category.sub_category', $data);
     }
-    public function add_sub_category_form_html(){
+    public function add_sub_category_form_html()
+    {
 
         $data['category'] = Category::get();
-        return view('admin.pages.product.sub_category.sub_category_form_html',$data);
+        return view('admin.pages.product.sub_category.sub_category_form_html', $data);
     }
 
-    public function add_sub_category(Request $request){
+    public function add_sub_category(Request $request)
+    {
 
-        if ($request->edit_id !='') {
+        if ($request->edit_id != '') {
 
             $category = SubCategory::findOrFail($request->edit_id);
             $category->category_id = $request->category_id;
             $category->sub_title = $request->title;
             if (isset($request->document) && !empty($request->document)) {
                 if ($request->hasFile('document')) {
-                    $c_image=$request->file('document');
-                    $milisecond=round(microtime(true)*1000);
-                    $name=$c_image->getClientOriginalName();
-                    $actual_name=str_replace(" ","_",$name);
-                    $uploadName=$milisecond."_".$actual_name;
-                    $c_image->move(public_path().'/upload/category/',$uploadName);
-                    $url = asset('public/upload/category/'.$uploadName);
+                    $c_image = $request->file('document');
+                    $milisecond = round(microtime(true) * 1000);
+                    $name = $c_image->getClientOriginalName();
+                    $actual_name = str_replace(" ", "_", $name);
+                    $uploadName = $milisecond . "_" . $actual_name;
+                    $c_image->move(public_path() . '/upload/category/', $uploadName);
+                    $url = asset('public/upload/category/' . $uploadName);
                     $c_image = $uploadName;
                     $category->sub_image = $url;
                 }
@@ -142,16 +210,16 @@ class ProductController extends Controller
             $category->status = $request->status;
             $category->save();
         } else {
-            $url ='';
+            $url = '';
             if (isset($request->document) && !empty($request->document)) {
                 if ($request->hasFile('document')) {
-                    $c_image=$request->file('document');
-                    $milisecond=round(microtime(true)*1000);
-                    $name=$c_image->getClientOriginalName();
-                    $actual_name=str_replace(" ","_",$name);
-                    $uploadName=$milisecond."_".$actual_name;
-                    $c_image->move(public_path().'/upload/category/',$uploadName);
-                    $url = asset('public/upload/category/'.$uploadName);
+                    $c_image = $request->file('document');
+                    $milisecond = round(microtime(true) * 1000);
+                    $name = $c_image->getClientOriginalName();
+                    $actual_name = str_replace(" ", "_", $name);
+                    $uploadName = $milisecond . "_" . $actual_name;
+                    $c_image->move(public_path() . '/upload/category/', $uploadName);
+                    $url = asset('public/upload/category/' . $uploadName);
                     $c_image = $uploadName;
                 }
             }
@@ -163,28 +231,29 @@ class ProductController extends Controller
             $category->status = $request->status;
             $category->save();
         }
-        
+
         if ($category) {
             return $this->sendResponse($category, 'category Added Successfully');
-        } 
-        else{ 
-            return $this->sendError('Insert Error.', ['error'=>'category is not inserted']);
-        } 
+        } else {
+            return $this->sendError('Insert Error.', ['error' => 'category is not inserted']);
+        }
     }
 
-    public function edit_sub_category(Request $request){
+    public function edit_sub_category(Request $request)
+    {
 
         $data['form_id'] = $form_id = $request->form_id;
-     
+
         $data['editData'] = SubCategory::where('id', $form_id)->first();
         $data['category'] = Category::get();
-        
-        return view('admin.pages.product.sub_category.sub_category_form_html',$data);
+
+        return view('admin.pages.product.sub_category.sub_category_form_html', $data);
     }
 
-    public function delete_sub_category($id){
-     
-        $data['category'] = SubCategory::where('id',$id)->delete();
+    public function delete_sub_category($id)
+    {
+
+        $data['category'] = SubCategory::where('id', $id)->delete();
         return redirect()->back();
     }
     //-------------------End Sub Category --------
@@ -194,13 +263,14 @@ class ProductController extends Controller
     //     $data['title']='product Add';
     //     return view('admin.pages.product.sub_category',$data);
     // }
-    public function inventory(){
-        $data['title']='inventory Lists';
-        return view('admin.pages.product.inventory',$data);
+    public function inventory()
+    {
+        $data['title'] = 'inventory Lists';
+        return view('admin.pages.product.inventory', $data);
     }
-    public function product_price(){
-        $data['title']='product_price Lists';
-        return view('admin.pages.product.product_price',$data);
+    public function product_price()
+    {
+        $data['title'] = 'product_price Lists';
+        return view('admin.pages.product.product_price', $data);
     }
-
 }
