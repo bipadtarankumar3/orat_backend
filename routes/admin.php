@@ -27,7 +27,16 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['App\Http\
 
     Route::group(['prefix' => 'product', 'as' => 'product.'], function () {
         Route::get('list', [ProductController::class, 'productList']);
+       
         Route::get('add', [ProductController::class, 'addProduct']);
+
+        //-----------------product type---------------------------
+        
+        Route::get('type', [ProductController::class, 'productTypeList']);
+        Route::get('add_product_type_form_html', [ProductController::class, 'add_product_type_form_html']);
+        Route::post('add_product_type', [ProductController::class, 'add_product_type']);
+        Route::get('edit_product_type', [ProductController::class, 'edit_product_type']);
+        Route::get('delete_product_type/{id}', [ProductController::class, 'delete_product_type']);
 
         //--------------------- Category -----------------------
         Route::get('category', [ProductController::class, 'category']);
