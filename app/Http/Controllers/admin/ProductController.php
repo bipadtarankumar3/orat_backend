@@ -121,13 +121,13 @@ class ProductController extends Controller
             $category->title = $request->title;
             if (isset($request->document) && !empty($request->document)) {
                 if ($request->hasFile('document')) {
-                    $c_image = $request->file('document');
-                    $milisecond = round(microtime(true) * 1000);
-                    $name = $c_image->getClientOriginalName();
-                    $actual_name = str_replace(" ", "_", $name);
-                    $uploadName = $milisecond . "_" . $actual_name;
-                    $c_image->move(public_path() . '/upload/category/', $uploadName);
-                    $url = asset('public/upload/category/' . $uploadName);
+                    $c_image=$request->file('document');
+                    $milisecond=round(microtime(true)*1000);
+                    $name=$c_image->getClientOriginalName();
+                    $actual_name=str_replace(" ","_",$name);
+                    $uploadName=$milisecond."_".$actual_name;
+                    $c_image->move(public_path().'/upload/category/',$uploadName);
+                    $url = asset('public/upload/category/'.$uploadName);
                     $c_image = $uploadName;
                     $category->image = $url;
                 }
@@ -139,13 +139,13 @@ class ProductController extends Controller
             $url = '';
             if (isset($request->document) && !empty($request->document)) {
                 if ($request->hasFile('document')) {
-                    $c_image = $request->file('document');
-                    $milisecond = round(microtime(true) * 1000);
-                    $name = $c_image->getClientOriginalName();
-                    $actual_name = str_replace(" ", "_", $name);
-                    $uploadName = $milisecond . "_" . $actual_name;
-                    $c_image->move(public_path() . '/upload/category/', $uploadName);
-                    $url = asset('public/upload/category/' . $uploadName);
+                    $c_image=$request->file('document');
+                    $milisecond=round(microtime(true)*1000);
+                    $name=$c_image->getClientOriginalName();
+                    $actual_name=str_replace(" ","_",$name);
+                    $uploadName=$milisecond."_".$actual_name;
+                    $c_image->move(public_path().'/upload/category/',$uploadName);
+                    $url = asset('public/upload/category/'.$uploadName);
                     $c_image = $uploadName;
                 }
             }
