@@ -13,16 +13,27 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->integer('category_id');
-            $table->integer('sub_category_id');
-            $table->integer('brand_id');
-            $table->text('name');
+            $table->integer('category_id')->nullable();
+            $table->integer('sub_category_id')->nullable();
+            $table->integer('brand_id')->nullable();
+            $table->text('product_title')->nullable();
+            $table->text('product_short_description')->nullable();
             $table->string('sku')->nullable();
-            $table->string('barcode')->nullable();
+            $table->string('discount')->nullable();
+            $table->string('discount_type')->nullable();
+            $table->string('product_slug')->nullable();
             $table->text('description')->nullable();
-            $table->text('feature_image')->nullable();
-            $table->text('tags')->nullable();
+            $table->text('product_thumbail')->nullable();
+            $table->text('cover_image')->nullable();
+            $table->text('video_url')->nullable();
+          
             $table->text('prod_status')->nullable();
+            $table->text('default_product_enable')->nullable();
+            $table->text('exhibition_enable')->nullable();
+            $table->text('tax_enable')->nullable();
+            $table->text('feature_product_enable')->nullable();
+            $table->text('todays_deal_enable')->nullable();
+            $table->text('in_stock')->nullable();
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();
             $table->timestamps();
