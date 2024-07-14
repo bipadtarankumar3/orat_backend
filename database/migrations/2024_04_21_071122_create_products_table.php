@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('sub_category_id')->nullable();
             $table->integer('brand_id')->nullable();
             $table->text('product_title')->nullable();
+            $table->integer('designer_id')->nullable();
             $table->text('product_short_description')->nullable();
             $table->string('sku')->nullable();
             $table->string('discount')->nullable();

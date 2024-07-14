@@ -8,6 +8,7 @@ use App\Http\Controllers\app_api\ExhibitionController;
 
 use App\Http\Controllers\web_api\UserController as WebUserController;
 use App\Http\Controllers\web_api\GeneralController;
+use App\Http\Controllers\web_api\ProductApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,7 +51,7 @@ Route::group(['prefix' => 'web', 'as' => 'web.'], function () {
     Route::post('category_list', [GeneralController::class, 'category_list']);
     Route::post('designer_list', [GeneralController::class, 'designer_list']);
 
-
+    Route::get('products', [ProductApiController::class, 'listProducts']);
     Route::post('login', [WebUserController::class, 'login']);
     Route::post('register', [WebUserController::class, 'register']);
     

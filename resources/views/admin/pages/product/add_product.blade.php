@@ -72,7 +72,7 @@
                                     <div class="col"><label class="form-label"
                                             for="ecommerce-product-sku">Discount</label>
                                         <input type="number" class="form-control" id="ecommerce-product-sku"
-                                            placeholder="0" name="productSku" aria-label="Product SKU">
+                                            placeholder="0" name="discount" aria-label="Product SKU">
                                     </div>
                                     <div class="col"><label class="form-label" for="ecommerce-product-barcode">Discount
                                             Type</label>
@@ -232,8 +232,11 @@
                                     <select id="desiner" name="designer_id" class="select2 form-select"
                                         data-placeholder="Please Select">
                                         <option value="">Please Select</option>
-                                        <option value="Published">Published</option>
-                                        <option value="Inactive">Inactive</option>
+                                        @foreach ($designers as $designer)
+                                        <option value="{{$designer->id}}">{{$designer->designer_name}}</option>
+                                            
+                                        @endforeach
+                                       
                                     </select>
                                 </div>
                                 <!-- Tags -->
