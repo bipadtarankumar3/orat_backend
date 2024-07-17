@@ -40,7 +40,7 @@
                                     <td>{{$key+1}}</td>
                                     {{-- <td>Active</td> --}}
                                     <td>
-                                        <img src="{{URL::to($item->banner_image)}}" alt="banner" style="width: 100px;">
+                                        <img src="{{$item->banner_image}}" alt="banner" style="width: 100px;">
                                     </td>
                                     {{-- <td>02/02/2024</td> --}}
                                     <td class="text-end">

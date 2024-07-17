@@ -16,16 +16,16 @@
     <!-- Image -->
     <div class="mb-3">
         <label class="form-label" for="document">Designer thumbnail</label>
-        <input class="form-control" type="file" accept="image/png, image/gif, image/jpeg" id="document" name="document">
+        <input class="form-control" type="file"  id="document" name="document">
         @if (isset($form_id))
-        <img src="{{URL::to($editData->designer_thumbnail)}}" alt="banner" style="width: 100px;">
+        <img src="{{$editData->designer_thumbnail}}" alt="banner" style="width: 100px;">
         @endif
     </div>
     <div class="mb-3">
         <label class="form-label" for="designer_cover">Cover</label>
-        <input class="form-control" type="file" accept="image/png, image/gif, image/jpeg" id="designer_cover" name="designer_cover">
+        <input class="form-control" type="file"  id="designer_cover" name="designer_cover">
         @if (isset($form_id))
-        <img src="{{URL::to($editData->designer_cover)}}" alt="banner" style="width: 100px;">
+        <img src="{{$editData->designer_cover}}" alt="banner" style="width: 100px;">
         @endif
     </div>
 

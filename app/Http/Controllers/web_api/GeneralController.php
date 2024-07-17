@@ -32,9 +32,15 @@ class GeneralController extends Controller
 
     }
 
-    public function category_list(){
-  
-        $Category = Category::where('status','publish')->get();
+    public function category_list(Request $request){
+        
+        if (isset($request->limit)) {
+            $limit = $request->limit;
+        } else {
+            $limit = 10;
+        }
+
+        $Category = Category::where('status','publish')->limit($limit)->get();
 
         return response()->json([
             'success' => true,

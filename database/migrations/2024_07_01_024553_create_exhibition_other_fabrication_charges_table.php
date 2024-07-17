@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('exhibition_other_fabrication_charges', function (Blueprint $table) {
             $table->id();
             $table->integer('other_fabrication_id');
-            $table->string('fabrication_charge')->nullable();
+            $table->text('fabrication_details')->nullable();
+            $table->date('fabrication_date')->nullable();
             $table->float('amount')->nullable();
             $table->integer('created_by')->nullable();
             $table->integer('updated_by')->nullable();

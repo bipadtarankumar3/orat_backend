@@ -164,20 +164,21 @@ class ExhibitionController extends Controller
         else if( $request->type == 'fabrication') {
             $create =  ExhibitionOtherFabrication::create([
                 'type' => $request->type,
-                'date' => $request->date,
+                // 'date' => $request->date,
                 'created_by' => Auth::user()->id,
             ]);
 
             // print_r($request->fabrication_charge_data);die;
-            $fabrication_charge_data =$request->fabrication_charge_data;
+            $fabrication_charge_data = json_decode($request->fabrication_charge_data);
         
             // print_r($fabrication_charge_data);die;
             foreach ($fabrication_charge_data as $key => $value) {
                 // print_r($value);die;
                 ExhibitionOtherFabricationCharge::create([
                     'other_fabrication_id' => $create->id,
-                    'fabrication_charge' => $value['fabrication_charge'],
-                    'amount' => $value['amount'],
+                    'fabrication_details' => $value->fabrication_details,
+                    'fabrication_date' => $value->fabrication_date,
+                    'amount' => $value->amount,
                     'created_by' => Auth::user()->id,
                 ]);
             }

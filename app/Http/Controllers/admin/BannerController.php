@@ -42,7 +42,7 @@ class BannerController extends Controller
                     $actual_name=str_replace(" ","_",$name);
                     $uploadName=$milisecond."_".$actual_name;
                     $c_image->move(public_path().'/upload/banner/',$uploadName);
-                    $url = 'public/upload/banner/'.$uploadName;
+                    $url = url('public/upload/banner/'.$uploadName);
                     $c_image = $uploadName;
                     $Banner->banner_image = $url;
                 }
@@ -59,7 +59,7 @@ class BannerController extends Controller
                     $actual_name=str_replace(" ","_",$name);
                     $uploadName=$milisecond."_".$actual_name;
                     $c_image->move(public_path().'/upload/banner/',$uploadName);
-                    $url = 'public/upload/banner/'.$uploadName;
+                    $url = url('public/upload/banner/'.$uploadName);
                     $c_image = $uploadName;
                 }
             }

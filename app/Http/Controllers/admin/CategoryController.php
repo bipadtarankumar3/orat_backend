@@ -47,7 +47,7 @@ class CategoryController extends Controller
                         $actual_name=str_replace(" ","_",$name);
                         $uploadName=$milisecond."_".$actual_name;
                         $c_image->move(public_path().'/upload/category/',$uploadName);
-                        $url = 'public/upload/category/'.$uploadName;
+                        $url = url('public/upload/category/'.$uploadName);
                         $c_image = $uploadName;
                         $category->icon = $url;
                     }
@@ -60,7 +60,7 @@ class CategoryController extends Controller
                         $actual_name=str_replace(" ","_",$name);
                         $uploadName=$milisecond."_".$actual_name;
                         $c_image->move(public_path().'/upload/category/',$uploadName);
-                        $url = 'public/upload/category/'.$uploadName;
+                        $url = url('public/upload/category/'.$uploadName);
                         $c_image = $uploadName;
                         $category->thumbnail = $url;
                     }
@@ -73,7 +73,7 @@ class CategoryController extends Controller
                         $actual_name=str_replace(" ","_",$name);
                         $uploadName=$milisecond."_".$actual_name;
                         $c_image->move(public_path().'/upload/category/',$uploadName);
-                        $url = 'public/upload/category/'.$uploadName;
+                        $url = url('public/upload/category/'.$uploadName);
                         $c_image = $uploadName;
                         $category->cover = $url;
                     }
@@ -95,7 +95,7 @@ class CategoryController extends Controller
                         $actual_name=str_replace(" ","_",$name);
                         $uploadName=$milisecond."_".$actual_name;
                         $c_image->move(public_path().'/upload/category/',$uploadName);
-                        $url = 'public/upload/category/'.$uploadName;
+                        $url = url('public/upload/category/'.$uploadName);
                         $c_image = $uploadName;
                         $category->icon = $url;
                     }
@@ -108,7 +108,7 @@ class CategoryController extends Controller
                         $actual_name=str_replace(" ","_",$name);
                         $uploadName=$milisecond."_".$actual_name;
                         $c_image->move(public_path().'/upload/category/',$uploadName);
-                        $url = 'public/upload/category/'.$uploadName;
+                        $url = url('public/upload/category/'.$uploadName);
                         $c_image = $uploadName;
                         $category->thumbnail = $url;
                     }
@@ -121,7 +121,7 @@ class CategoryController extends Controller
                         $actual_name=str_replace(" ","_",$name);
                         $uploadName=$milisecond."_".$actual_name;
                         $c_image->move(public_path().'/upload/category/',$uploadName);
-                        $url = 'public/upload/category/'.$uploadName;
+                        $url = url('public/upload/category/'.$uploadName);
                         $c_image = $uploadName;
                         $category->cover = $url;
                     }
@@ -186,7 +186,7 @@ class CategoryController extends Controller
                         $actual_name = str_replace(" ", "_", $name);
                         $uploadName = $milisecond . "_" . $actual_name;
                         $c_image->move(public_path() . '/upload/category/', $uploadName);
-                        $url = 'public/upload/category/' . $uploadName;
+                        $url = url('public/upload/category/' . $uploadName);
                         $c_image = $uploadName;
                         $category->sub_image = $url;
                     }
@@ -204,7 +204,7 @@ class CategoryController extends Controller
                         $actual_name = str_replace(" ", "_", $name);
                         $uploadName = $milisecond . "_" . $actual_name;
                         $c_image->move(public_path() . '/upload/category/', $uploadName);
-                        $url = 'public/upload/category/' . $uploadName;
+                        $url = url('public/upload/category/' . $uploadName);
                         $c_image = $uploadName;
                     }
                 }
