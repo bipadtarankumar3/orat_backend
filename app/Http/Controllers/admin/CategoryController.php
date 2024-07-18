@@ -39,6 +39,13 @@ class CategoryController extends Controller
     
                 $category = Category::findOrFail($request->edit_id);
                 $category->title = $request->title;
+                $str = strtolower($request->title); 
+    
+                // Replace the spaces with hyphens 
+                $slug = str_replace(' ', '-', $str); 
+
+                $category->category_slug = $slug;
+
                 if (isset($request->document) && !empty($request->document)) {
                     if ($request->hasFile('document')) {
                         $c_image=$request->file('document');
@@ -86,6 +93,13 @@ class CategoryController extends Controller
                 
                 $category = new Category();
                 $category->title = $request->title;
+
+                $str = strtolower($request->title); 
+    
+                // Replace the spaces with hyphens 
+                $slug = str_replace(' ', '-', $str); 
+
+                $category->category_slug = $slug;
                 $category->created_by = Auth::user()->id;
                 if (isset($request->document) && !empty($request->document)) {
                     if ($request->hasFile('document')) {
