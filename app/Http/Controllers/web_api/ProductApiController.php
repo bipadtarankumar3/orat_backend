@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 class ProductApiController extends Controller
 {
-    public function listProducts(Request $request)
+    public function home_products(Request $request)
     {
         $products = Product::with([
             'tags',
@@ -18,6 +18,11 @@ class ProductApiController extends Controller
             'subCategory'
         ])->get();
 
-        return response()->json($products);
+        return response()->json([
+            'success' => true,
+            'data' => $products,
+            'message' => 'Category List'
+        ]);
+
     }
 }

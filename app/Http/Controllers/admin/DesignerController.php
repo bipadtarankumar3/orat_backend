@@ -45,7 +45,7 @@ class DesignerController extends Controller
                     $actual_name=str_replace(" ","_",$name);
                     $uploadName=$milisecond."_".$actual_name;
                     $c_image->move(public_path().'/upload/designer/',$uploadName);
-                    $url = 'public/upload/designer/'.$uploadName;
+                    $url = url('public/upload/designer/'.$uploadName);
                     $c_image = $uploadName;
                     $designer->designer_thumbnail = $url;
                 }
@@ -58,7 +58,7 @@ class DesignerController extends Controller
                     $actual_name=str_replace(" ","_",$name);
                     $uploadName=$milisecond."_".$actual_name;
                     $c_image->move(public_path().'/upload/designer/',$uploadName);
-                    $url = 'public/upload/designer/'.$uploadName;
+                    $url = url('public/upload/designer/'.$uploadName);
                     $c_image = $uploadName;
                     $designer->designer_cover = $url;
                 }
@@ -79,7 +79,7 @@ class DesignerController extends Controller
                     $actual_name=str_replace(" ","_",$name);
                     $uploadName=$milisecond."_".$actual_name;
                     $c_image->move(public_path().'/upload/designer/',$uploadName);
-                    $url = 'public/upload/designer/'.$uploadName;
+                    $url = url('public/upload/designer/'.$uploadName);
                     $c_image = $uploadName;
                     $designer->designer_thumbnail = $url;
                 }
@@ -92,7 +92,7 @@ class DesignerController extends Controller
                     $actual_name=str_replace(" ","_",$name);
                     $uploadName=$milisecond."_".$actual_name;
                     $c_image->move(public_path().'/upload/designer/',$uploadName);
-                    $url = 'public/upload/designer/'.$uploadName;
+                    $url = url('public/upload/designer/'.$uploadName);
                     $c_image = $uploadName;
                     $designer->designer_cover = $url;
                 }

@@ -5,7 +5,7 @@
         <label class="form-label" for="document">Banner</label>
         <input class="form-control" type="file" accept="image/png, image/gif, image/jpeg" id="document" name="document">
         @if (isset($form_id))
-        <img src="{{URL::to($Banner->banner_image)}}" alt="banner" style="width: 100px;">
+        <img src="{{$Banner->banner_image}}" alt="banner" style="width: 100px;">
         @endif
     </div>
     <div class="mb-3">

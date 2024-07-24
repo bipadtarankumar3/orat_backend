@@ -39,6 +39,13 @@ class CategoryController extends Controller
     
                 $category = Category::findOrFail($request->edit_id);
                 $category->title = $request->title;
+                $str = strtolower($request->title); 
+    
+                // Replace the spaces with hyphens 
+                $slug = str_replace(' ', '-', $str); 
+
+                $category->category_slug = $slug;
+
                 if (isset($request->document) && !empty($request->document)) {
                     if ($request->hasFile('document')) {
                         $c_image=$request->file('document');
@@ -47,7 +54,7 @@ class CategoryController extends Controller
                         $actual_name=str_replace(" ","_",$name);
                         $uploadName=$milisecond."_".$actual_name;
                         $c_image->move(public_path().'/upload/category/',$uploadName);
-                        $url = 'public/upload/category/'.$uploadName;
+                        $url = url('public/upload/category/'.$uploadName);
                         $c_image = $uploadName;
                         $category->icon = $url;
                     }
@@ -60,7 +67,7 @@ class CategoryController extends Controller
                         $actual_name=str_replace(" ","_",$name);
                         $uploadName=$milisecond."_".$actual_name;
                         $c_image->move(public_path().'/upload/category/',$uploadName);
-                        $url = 'public/upload/category/'.$uploadName;
+                        $url = url('public/upload/category/'.$uploadName);
                         $c_image = $uploadName;
                         $category->thumbnail = $url;
                     }
@@ -73,7 +80,7 @@ class CategoryController extends Controller
                         $actual_name=str_replace(" ","_",$name);
                         $uploadName=$milisecond."_".$actual_name;
                         $c_image->move(public_path().'/upload/category/',$uploadName);
-                        $url = 'public/upload/category/'.$uploadName;
+                        $url = url('public/upload/category/'.$uploadName);
                         $c_image = $uploadName;
                         $category->cover = $url;
                     }
@@ -86,6 +93,13 @@ class CategoryController extends Controller
                 
                 $category = new Category();
                 $category->title = $request->title;
+
+                $str = strtolower($request->title); 
+    
+                // Replace the spaces with hyphens 
+                $slug = str_replace(' ', '-', $str); 
+
+                $category->category_slug = $slug;
                 $category->created_by = Auth::user()->id;
                 if (isset($request->document) && !empty($request->document)) {
                     if ($request->hasFile('document')) {
@@ -95,7 +109,7 @@ class CategoryController extends Controller
                         $actual_name=str_replace(" ","_",$name);
                         $uploadName=$milisecond."_".$actual_name;
                         $c_image->move(public_path().'/upload/category/',$uploadName);
-                        $url = 'public/upload/category/'.$uploadName;
+                        $url = url('public/upload/category/'.$uploadName);
                         $c_image = $uploadName;
                         $category->icon = $url;
                     }
@@ -108,7 +122,7 @@ class CategoryController extends Controller
                         $actual_name=str_replace(" ","_",$name);
                         $uploadName=$milisecond."_".$actual_name;
                         $c_image->move(public_path().'/upload/category/',$uploadName);
-                        $url = 'public/upload/category/'.$uploadName;
+                        $url = url('public/upload/category/'.$uploadName);
                         $c_image = $uploadName;
                         $category->thumbnail = $url;
                     }
@@ -121,7 +135,7 @@ class CategoryController extends Controller
                         $actual_name=str_replace(" ","_",$name);
                         $uploadName=$milisecond."_".$actual_name;
                         $c_image->move(public_path().'/upload/category/',$uploadName);
-                        $url = 'public/upload/category/'.$uploadName;
+                        $url = url('public/upload/category/'.$uploadName);
                         $c_image = $uploadName;
                         $category->cover = $url;
                     }
@@ -186,7 +200,7 @@ class CategoryController extends Controller
                         $actual_name = str_replace(" ", "_", $name);
                         $uploadName = $milisecond . "_" . $actual_name;
                         $c_image->move(public_path() . '/upload/category/', $uploadName);
-                        $url = 'public/upload/category/' . $uploadName;
+                        $url = url('public/upload/category/' . $uploadName);
                         $c_image = $uploadName;
                         $category->sub_image = $url;
                     }
@@ -204,7 +218,7 @@ class CategoryController extends Controller
                         $actual_name = str_replace(" ", "_", $name);
                         $uploadName = $milisecond . "_" . $actual_name;
                         $c_image->move(public_path() . '/upload/category/', $uploadName);
-                        $url = 'public/upload/category/' . $uploadName;
+                        $url = url('public/upload/category/' . $uploadName);
                         $c_image = $uploadName;
                     }
                 }

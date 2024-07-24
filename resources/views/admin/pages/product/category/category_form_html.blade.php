@@ -11,23 +11,23 @@
     <!-- Image -->
     <div class="mb-3">
         <label class="form-label" for="document">Icon</label>
-        <input class="form-control" type="file" accept="image/png, image/gif, image/jpeg" id="document" name="document">
+        <input class="form-control" type="file"  id="document" name="document">
         @if (isset($form_id))
-        <img src="{{URL::to($editData->icon)}}" alt="icon" style="width: 100px;">
+        <img src="{{$editData->icon}}" alt="icon" style="width: 100px;">
         @endif
     </div>
     <div class="mb-3">
         <label class="form-label" for="thumbnail">Thumbnail</label>
-        <input class="form-control" type="file" accept="image/png, image/gif, image/jpeg" id="thumbnail" name="thumbnail">
+        <input class="form-control" type="file"  id="thumbnail" name="thumbnail">
         @if (isset($form_id))
-        <img src="{{URL::to($editData->image)}}" alt="banner" style="width: 100px;">
+        <img src="{{$editData->thumbnail}}" alt="banner" style="width: 100px;">
         @endif
     </div>
     <div class="mb-3">
         <label class="form-label" for="cover">Cover</label>
-        <input class="form-control" type="file" accept="image/png, image/gif, image/jpeg" id="cover" name="cover">
+        <input class="form-control" type="file"  id="cover" name="cover">
         @if (isset($form_id))
-        <img src="{{URL::to($editData->image)}}" alt="banner" style="width: 100px;">
+        <img src="{{$editData->cover}}" alt="banner" style="width: 100px;">
         @endif
     </div>
 

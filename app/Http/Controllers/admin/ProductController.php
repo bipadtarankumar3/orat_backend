@@ -58,7 +58,7 @@ class ProductController extends Controller
                 $thumbnailImage = $request->file('thumbail_image');
                 $thumbnailName = time() . '_' . $thumbnailImage->getClientOriginalName();
                 $thumbnailImage->move(public_path('uploads'), $thumbnailName);
-                $thumbnailPath = asset('uploads/' . $thumbnailName);
+                $thumbnailPath = url('public/uploads/' . $thumbnailName);
             }
 
             // Handle cover image upload
@@ -66,7 +66,7 @@ class ProductController extends Controller
                 $coverImage = $request->file('cover_image');
                 $coverName = time() . '_' . $coverImage->getClientOriginalName();
                 $coverImage->move(public_path('uploads'), $coverName);
-                $coverPath = asset('uploads/' . $coverName);
+                $coverPath = url('public/uploads/' . $coverName);
             }
 
             // Create the product
