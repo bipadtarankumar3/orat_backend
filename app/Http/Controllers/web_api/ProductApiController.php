@@ -13,7 +13,9 @@ class ProductApiController extends Controller
             'tags',
             'types',
             'variants',
-            'images'
+            'images',
+             'category',
+            'subCategory'
         ])->get();
 
         return response()->json($products);

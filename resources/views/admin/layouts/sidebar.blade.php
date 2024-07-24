@@ -92,6 +92,11 @@
                         <div class="text-truncate" data-i18n="Add Product">Add Product</div>
                     </a>
                 </li>
+                <li class="menu-item">
+                    <a href="{{ URL::to('admin/product/size') }}" class="menu-link">
+                        <div class="text-truncate" data-i18n="Add Product">Size</div>
+                    </a>
+                </li>
             </ul>
         </li>
 

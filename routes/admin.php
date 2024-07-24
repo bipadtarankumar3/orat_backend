@@ -18,6 +18,7 @@ use App\Http\Controllers\admin\ExhibitionController;
 use App\Http\Controllers\admin\GiftController;
 use App\Http\Controllers\admin\ReportsController;
 use App\Http\Controllers\admin\DesignerController;
+use App\Http\Controllers\admin\ProductGeneralController;
 
 Route::get('login', [AdminAuthController::class, 'login'])->name('login');
 Route::post('admin-login-action', [AdminAuthController::class, 'adminLoginAction']);
@@ -56,6 +57,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['App\Http\
         Route::get('edit_category', [CategoryController::class, 'edit_category']);
         Route::get('delete_category/{id}', [CategoryController::class, 'delete_category']);
         //--------------------- Category End -----------------------
+        //--------------------- size -----------------------
+        Route::get('size', [ProductGeneralController::class, 'size']);
+        Route::get('add_size_form_html', [ProductGeneralController::class, 'add_size_form_html']);
+        Route::post('add_size', [ProductGeneralController::class, 'add_size']);
+        Route::get('edit_size', [ProductGeneralController::class, 'edit_size']);
+        Route::get('delete_size/{id}', [ProductGeneralController::class, 'delete_size']);
+        //--------------------- size End -----------------------
 
         //--------------------- Sub Category -----------------------
         Route::get('sub_category', [CategoryController::class, 'sub_category']);
