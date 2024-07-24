@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\admin\ProductColor;
 use App\Models\admin\ProductSize;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductGeneralController extends Controller
 {
@@ -17,7 +19,7 @@ class ProductGeneralController extends Controller
     public function add_size_form_html()
     {
 
-        return view('admin.pages.product.category.category_form_html');
+        return view('admin.pages.product.size.size_form');
     }
 
     public function add_size(Request $request)
@@ -25,102 +27,26 @@ class ProductGeneralController extends Controller
 
         if ($request->edit_id != '') {
 
-            $category = Category::findOrFail($request->edit_id);
-            $category->title = $request->title;
-            if (isset($request->document) && !empty($request->document)) {
-                if ($request->hasFile('document')) {
-                    $c_image=$request->file('document');
-                    $milisecond=round(microtime(true)*1000);
-                    $name=$c_image->getClientOriginalName();
-                    $actual_name=str_replace(" ","_",$name);
-                    $uploadName=$milisecond."_".$actual_name;
-                    $c_image->move(public_path().'/upload/category/',$uploadName);
-                    $url = 'public/upload/category/'.$uploadName;
-                    $c_image = $uploadName;
-                    $category->icon = $url;
-                }
-            }
-            if (isset($request->thumbnail) && !empty($request->thumbnail)) {
-                if ($request->hasFile('thumbnail')) {
-                    $c_image=$request->file('thumbnail');
-                    $milisecond=round(microtime(true)*1000);
-                    $name=$c_image->getClientOriginalName();
-                    $actual_name=str_replace(" ","_",$name);
-                    $uploadName=$milisecond."_".$actual_name;
-                    $c_image->move(public_path().'/upload/category/',$uploadName);
-                    $url = 'public/upload/category/'.$uploadName;
-                    $c_image = $uploadName;
-                    $category->thumbnail = $url;
-                }
-            }
-            if (isset($request->cover) && !empty($request->cover)) {
-                if ($request->hasFile('cover')) {
-                    $c_image=$request->file('cover');
-                    $milisecond=round(microtime(true)*1000);
-                    $name=$c_image->getClientOriginalName();
-                    $actual_name=str_replace(" ","_",$name);
-                    $uploadName=$milisecond."_".$actual_name;
-                    $c_image->move(public_path().'/upload/category/',$uploadName);
-                    $url = 'public/upload/category/'.$uploadName;
-                    $c_image = $uploadName;
-                    $category->cover = $url;
-                }
-            }
-            $category->updated_by = Auth::user()->id;
-            $category->status = $request->status;
-            $category->save();
+            $size = ProductSize::findOrFail($request->edit_id);
+            $size->size = $request->size;
+            $size->size_slug = strtolower(str_replace(' ', '-', $request->size));
+            $size->updated_by = Auth::user()->id;
+            $size->status = $request->status;
+            $size->save();
         } else {
             $url = '';
             
-            $category = new Category();
-            $category->title = $request->title;
-            $category->created_by = Auth::user()->id;
-            if (isset($request->document) && !empty($request->document)) {
-                if ($request->hasFile('document')) {
-                    $c_image=$request->file('document');
-                    $milisecond=round(microtime(true)*1000);
-                    $name=$c_image->getClientOriginalName();
-                    $actual_name=str_replace(" ","_",$name);
-                    $uploadName=$milisecond."_".$actual_name;
-                    $c_image->move(public_path().'/upload/category/',$uploadName);
-                    $url = 'public/upload/category/'.$uploadName;
-                    $c_image = $uploadName;
-                    $category->icon = $url;
-                }
-            }
-            if (isset($request->thumbnail) && !empty($request->thumbnail)) {
-                if ($request->hasFile('thumbnail')) {
-                    $c_image=$request->file('thumbnail');
-                    $milisecond=round(microtime(true)*1000);
-                    $name=$c_image->getClientOriginalName();
-                    $actual_name=str_replace(" ","_",$name);
-                    $uploadName=$milisecond."_".$actual_name;
-                    $c_image->move(public_path().'/upload/category/',$uploadName);
-                    $url = 'public/upload/category/'.$uploadName;
-                    $c_image = $uploadName;
-                    $category->thumbnail = $url;
-                }
-            }
-            if (isset($request->cover) && !empty($request->cover)) {
-                if ($request->hasFile('cover')) {
-                    $c_image=$request->file('cover');
-                    $milisecond=round(microtime(true)*1000);
-                    $name=$c_image->getClientOriginalName();
-                    $actual_name=str_replace(" ","_",$name);
-                    $uploadName=$milisecond."_".$actual_name;
-                    $c_image->move(public_path().'/upload/category/',$uploadName);
-                    $url = 'public/upload/category/'.$uploadName;
-                    $c_image = $uploadName;
-                    $category->cover = $url;
-                }
-            }
+            $size = new ProductSize();
+            $size->size = $request->size;
+            $size->created_by = Auth::user()->id;
+            $size->size_slug = strtolower(str_replace(' ', '-', $request->size));
             
-            $category->status = $request->status;
-            $category->save();
+            $size->status = $request->status;
+            $size->save();
         }
 
-        if ($category) {
-            return $this->sendResponse($category, 'category Added Successfully');
+        if ($size) {
+            return $this->sendResponse($size, 'Size Added Successfully');
         } else {
             return $this->sendError('Insert Error.', ['error' => 'category is not inserted']);
         }
@@ -131,15 +57,76 @@ class ProductGeneralController extends Controller
 
         $data['form_id'] = $form_id = $request->form_id;
 
-        $data['editData'] = Category::where('id', $form_id)->first();
+        $data['editData'] = ProductSize::where('id', $form_id)->first();
 
-        return view('admin.pages.product.category.category_form_html', $data);
+        return view('admin.pages.product.size.size_form', $data);
     }
 
     public function delete_size($id)
     {
 
-        $data['category'] = Category::where('id', $id)->delete();
+        $data['category'] = ProductSize::where('id', $id)->delete();
+        return redirect()->back();
+    }
+    //----------------------------size end------------------------------//
+    //--------------------------------color start ----------------------------------//
+    public function color()
+    {
+        $data['title'] = 'product Add';
+        $data['color'] = ProductColor::get();
+        return view('admin.pages.product.color.color', $data);
+    }
+    public function add_color_form_html()
+    {
+
+        return view('admin.pages.product.color.color_form');
+    }
+
+    public function add_color(Request $request)
+    {
+
+        if ($request->edit_id != '') {
+
+            $color = ProductColor::findOrFail($request->edit_id);
+            $color->color = $request->color;
+            $color->color_slug = strtolower(str_replace(' ', '-', $request->title));
+            $color->title = $request->title;
+            $color->updated_by = Auth::user()->id;
+            $color->status = $request->status;
+            $color->save();
+        } else {
+            $url = '';
+            
+            $color = new ProductColor();
+            $color->color = $request->color;
+            $color->created_by = Auth::user()->id;
+            $color->title = $request->title;
+            $color->color_slug = strtolower(str_replace(' ', '-', $request->color));
+            $color->status = $request->status;
+            $color->save();
+        }
+
+        if ($color) {
+            return $this->sendResponse($color, 'color Added Successfully');
+        } else {
+            return $this->sendError('Insert Error.', ['error' => 'category is not inserted']);
+        }
+    }
+
+    public function edit_color(Request $request)
+    {
+
+        $data['form_id'] = $form_id = $request->form_id;
+
+        $data['editData'] = ProductColor::where('id', $form_id)->first();
+
+        return view('admin.pages.product.color.color_form', $data);
+    }
+
+    public function delete_color($id)
+    {
+
+        $data['category'] = ProductColor::where('id', $id)->delete();
         return redirect()->back();
     }
 }

@@ -64,6 +64,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['App\Http\
         Route::get('edit_size', [ProductGeneralController::class, 'edit_size']);
         Route::get('delete_size/{id}', [ProductGeneralController::class, 'delete_size']);
         //--------------------- size End -----------------------
+        //--------------------- size -----------------------
+        Route::get('color', [ProductGeneralController::class, 'color']);
+        Route::get('add_color_form_html', [ProductGeneralController::class, 'add_color_form_html']);
+        Route::post('add_color', [ProductGeneralController::class, 'add_color']);
+        Route::get('edit_color', [ProductGeneralController::class, 'edit_color']);
+        Route::get('delete_color/{id}', [ProductGeneralController::class, 'delete_color']);
+        //--------------------- color End -----------------------
 
         //--------------------- Sub Category -----------------------
         Route::get('sub_category', [CategoryController::class, 'sub_category']);

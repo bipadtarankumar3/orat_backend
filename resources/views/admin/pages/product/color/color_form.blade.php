@@ -3,9 +3,14 @@
     <input type="hidden" name="edit_id" id="edit_id" value="{{isset($form_id)?$form_id:''}}">
     <!-- Title -->
     <div class="mb-3">
-        <label class="form-label" for="ecommerce-size-title">Size</label>
-        <input type="text" value="{{isset($form_id)?$editData->size:''}}"  class="form-control" id="ecommerce-size-title"
-            placeholder="Enter size title" name="size" aria-label="size title">
+        <label class="form-label" for="ecommerce-size-title">Title</label>
+        <input type="text" value="{{isset($form_id)?$editData->title:''}}"  class="form-control" id="ecommerce-size-title"
+            placeholder="Enter size title" name="title" aria-label="size title">
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="ecommerce-size-title">Color</label>
+        <input type="color" value="{{isset($form_id)?$editData->color:''}}"  class="form-control" id="ecommerce-size-title"
+            placeholder="Enter size color" name="color" aria-label="size color">
     </div>
 
    

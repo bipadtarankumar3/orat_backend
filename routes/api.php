@@ -48,6 +48,8 @@ Route::group(['prefix' => 'web', 'as' => 'web.'], function () {
 
     //For frontend
     Route::post('banner_list', [GeneralController::class, 'banner_list']);
+    Route::post('product-color', [GeneralController::class, 'productColor']);
+    Route::post('product-size', [GeneralController::class, 'productSize']);
     Route::post('category_list', [GeneralController::class, 'category_list']);
     Route::post('designer_list', [GeneralController::class, 'designer_list']);
 

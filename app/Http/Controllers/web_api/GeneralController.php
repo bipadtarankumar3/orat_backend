@@ -17,6 +17,8 @@ use App\Models\admin\Category;
 use App\Models\admin\SubCategory;
 
 use App\Models\admin\Designer;
+use App\Models\admin\ProductColor;
+use App\Models\admin\ProductSize;
 
 class GeneralController extends Controller
 {
@@ -28,6 +30,28 @@ class GeneralController extends Controller
             'success' => true,
             'data' => $Banner,
             'message' => 'Banner List'
+        ]);
+
+    }
+    public function productColor(){
+  
+        $Banner = ProductColor::get();
+
+        return response()->json([
+            'success' => true,
+            'data' => $Banner,
+            'message' => 'Color List'
+        ]);
+
+    }
+    public function productSize(){
+  
+        $Banner = ProductSize::get();
+
+        return response()->json([
+            'success' => true,
+            'data' => $Banner,
+            'message' => 'Size List'
         ]);
 
     }

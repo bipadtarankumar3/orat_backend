@@ -6,7 +6,7 @@
 
 
         <h4 class="py-3 mb-4">
-            <span class="text-muted fw-light">eCommerce /</span> Size List
+            <span class="text-muted fw-light">eCommerce /</span> Color List
         </h4>
 
         <div class="app-ecommerce-category">
@@ -16,7 +16,7 @@
                     <div class="col-md-12 float-right text-right" style="text-align: right">
                         <button   onclick="showModalForm()" class="btn btn-secondary add-new btn-primary ms-2" tabindex="0"
                             aria-controls="DataTables_Table_0" type="button">
-                            <span><i class="bx bx-plus me-0 me-sm-1"></i>Add Size</span>
+                            <span><i class="bx bx-plus me-0 me-sm-1"></i>Add Color</span>
                         </button>
                     </div>
                 </div>
@@ -26,16 +26,18 @@
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>size</th>
+                                <th>Title</th>
+                                <th>Color</th>
                               
                                 <th class="text-lg-center">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($size as $key=> $item)
+                            @foreach ($color as $key=> $item)
                                 <tr>
                                     <td>{{$key+1}}</td>
-                                    <td>{{$item->size}}</td>
+                                    <td>{{$item->title}}</td>
+                                    <td>{{$item->color}}</td>
                                   
                                     <td class="text-end">
                                         <div class="dropdown pe-3">
@@ -46,7 +48,7 @@
                                                 {{-- <a class="dropdown-item" href="http://localhost/orat_backend/admin/order/details"><i class="bx bx-edit-alt me-1"></i> View</a> --}}
                                                 <a onclick="editForm('{{$item->id}}')" class="dropdown-item" href="javascript:void(0);"><i
                                                         class="bx bx-edit-alt me-1"></i> Edit</a>
-                                                <a class="dropdown-item" href="{{ URL::to('admin/product/delete_size', $item->id) }}" onclick="deleteConfirmationGet(event)">
+                                                <a class="dropdown-item" href="{{ URL::to('admin/product/delete_color', $item->id) }}" onclick="deleteConfirmationGet(event)">
                                                     <i class="bx bx-trash me-1"></i> Delete
                                                 </a>
                                             </div>
@@ -63,7 +65,7 @@
                 aria-labelledby="categoryAddModalLabel">
                 <!-- Offcanvas Header -->
                 <div class="offcanvas-header py-4">
-                    <h5 id="categoryAddModalLabel" class="offcanvas-title">Add Size</h5>
+                    <h5 id="categoryAddModalLabel" class="offcanvas-title">Add Color</h5>
                     <button onclick="closeModal('categoryAddModal')" type="button" class="btn-close bg-label-secondary text-reset" data-bs-dismiss="offcanvas"
                         aria-label="Close"></button>
                 </div>
@@ -84,7 +86,7 @@
     <script>
         function showModalForm() {
             $.ajax({
-                url: "{{URL::to('admin/product/add_size_form_html')}}", // Replace with your listing URL
+                url: "{{URL::to('admin/product/add_color_form_html')}}", // Replace with your listing URL
                 type: 'GET',
                 data:{form_id:''},
                 success: function(response) {
@@ -111,7 +113,7 @@
             var csrfToken = $('input[name="_token"]').val();
 
             $.ajax({
-                url: "{{ URL::to('admin/product/add_size') }}", // Replace with your submit URL
+                url: "{{ URL::to('admin/product/add_color') }}", // Replace with your submit URL
                 type: 'POST',
                 data: formData,
                 processData: false,
@@ -137,7 +139,7 @@
     
         function editForm(form_id) {
             $.ajax({
-                url: "{{URL::to('admin/product/edit_size')}}", // Replace with your listing URL
+                url: "{{URL::to('admin/product/edit_color')}}", // Replace with your listing URL
                 type: 'GET',
                 data:{form_id:form_id},
                 success: function(response) {

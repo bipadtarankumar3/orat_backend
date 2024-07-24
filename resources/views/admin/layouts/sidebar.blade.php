@@ -97,6 +97,11 @@
                         <div class="text-truncate" data-i18n="Add Product">Size</div>
                     </a>
                 </li>
+                <li class="menu-item">
+                    <a href="{{ URL::to('admin/product/color') }}" class="menu-link">
+                        <div class="text-truncate" data-i18n="Add Product">Color</div>
+                    </a>
+                </li>
             </ul>
         </li>
 
