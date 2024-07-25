@@ -15,6 +15,9 @@ use File;
 use App\Mail\ClientMail;
 use App\Models\AddedProductType;
 use App\Models\admin\Designer;
+use App\Models\admin\ProductColor;
+use App\Models\admin\ProductOccution;
+use App\Models\admin\ProductSize;
 use App\Models\Product;
 use App\Models\ProductImage;
 use App\Models\ProductTags;
@@ -43,6 +46,9 @@ class ProductController extends Controller
         $data['product_types'] = ProductType::where('created_by', Auth::user()->id)->get();
         $data['categories'] = Category::where('created_by', Auth::user()->id)->get();
         $data['designers'] = Designer::where('created_by', Auth::user()->id)->get();
+        $data['color'] = ProductColor::where('created_by', Auth::user()->id)->get();
+        $data['sizes'] = ProductSize::where('created_by', Auth::user()->id)->get();
+        $data['occutions'] = ProductOccution::where('created_by', Auth::user()->id)->get();
         return view('admin.pages.product.add_product', $data);
     }
 

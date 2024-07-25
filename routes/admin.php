@@ -64,13 +64,27 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['App\Http\
         Route::get('edit_size', [ProductGeneralController::class, 'edit_size']);
         Route::get('delete_size/{id}', [ProductGeneralController::class, 'delete_size']);
         //--------------------- size End -----------------------
-        //--------------------- size -----------------------
+        //--------------------- color -----------------------
         Route::get('color', [ProductGeneralController::class, 'color']);
         Route::get('add_color_form_html', [ProductGeneralController::class, 'add_color_form_html']);
         Route::post('add_color', [ProductGeneralController::class, 'add_color']);
         Route::get('edit_color', [ProductGeneralController::class, 'edit_color']);
         Route::get('delete_color/{id}', [ProductGeneralController::class, 'delete_color']);
         //--------------------- color End -----------------------
+        //--------------------- occution -----------------------
+        Route::get('occution', [ProductGeneralController::class, 'occution']);
+        Route::get('add_occution_form_html', [ProductGeneralController::class, 'add_occution_form_html']);
+        Route::post('add_occution', [ProductGeneralController::class, 'add_occution']);
+        Route::get('edit_occution', [ProductGeneralController::class, 'edit_occution']);
+        Route::get('delete_occution/{id}', [ProductGeneralController::class, 'delete_occution']);
+        //--------------------- occution End -----------------------
+        //--------------------- suboccution -----------------------
+        Route::get('suboccution', [ProductGeneralController::class, 'suboccution']);
+        Route::get('add_suboccution_form_html', [ProductGeneralController::class, 'add_suboccution_form_html']);
+        Route::post('add_suboccution', [ProductGeneralController::class, 'add_suboccution']);
+        Route::get('edit_suboccution', [ProductGeneralController::class, 'edit_suboccution']);
+        Route::get('delete_suboccution/{id}', [ProductGeneralController::class, 'delete_suboccution']);
+        //--------------------- suboccution End -----------------------
 
         //--------------------- Sub Category -----------------------
         Route::get('sub_category', [CategoryController::class, 'sub_category']);
