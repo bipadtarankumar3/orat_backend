@@ -6,6 +6,7 @@ namespace App\Models;
 
 
 use App\Models\admin\Category;
+use App\Models\admin\ProductOccution;
 use App\Models\admin\SubCategory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -25,10 +26,6 @@ class Product extends Model
         return $this->hasMany(AddedProductType::class);
     }
 
-    public function variants()
-    {
-        return $this->hasMany(ProductVariant::class);
-    }
 
     public function images()
     {
@@ -43,5 +40,20 @@ class Product extends Model
     public function subCategory()
     {
         return $this->belongsTo(SubCategory::class);
+    }
+
+    public function occasion()
+    {
+        return $this->belongsTo(ProductOccution::class);
+    }
+
+    public function subOccasion()
+    {
+        return $this->belongsTo(ProductOccution::class);
+    }
+
+    public function variants()
+    {
+        return $this->hasMany(ProductVariant::class);
     }
 }

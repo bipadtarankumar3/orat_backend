@@ -33,6 +33,11 @@ class ProductController extends Controller
         $subCategories = SubCategory::where('category_id', $category_id)->get();
         return response()->json($subCategories);
     }
+    public function getSuboccution($occution_id)
+    {
+        $suboccution = ProductOccution::where('parent_id', $occution_id)->get();
+        return response()->json($suboccution);
+    }
 
     public function productList()
     {
@@ -46,9 +51,9 @@ class ProductController extends Controller
         $data['product_types'] = ProductType::where('created_by', Auth::user()->id)->get();
         $data['categories'] = Category::where('created_by', Auth::user()->id)->get();
         $data['designers'] = Designer::where('created_by', Auth::user()->id)->get();
-        $data['color'] = ProductColor::where('created_by', Auth::user()->id)->get();
+        $data['colors'] = ProductColor::where('created_by', Auth::user()->id)->get();
         $data['sizes'] = ProductSize::where('created_by', Auth::user()->id)->get();
-        $data['occutions'] = ProductOccution::where('created_by', Auth::user()->id)->get();
+        $data['occutions'] = ProductOccution::where('created_by', Auth::user()->id)->where('type','occution')->get();
         return view('admin.pages.product.add_product', $data);
     }
 
@@ -92,9 +97,12 @@ class ProductController extends Controller
                 'in_stock' => $request->input('in_stock'),
                 'category_id' => $request->input('category_id'),
                 'sub_category_id' => $request->input('sub_category_id'),
+                'occution_id' => $request->input('occution_id'),
+                'sub_occution_id' => $request->input('sub_occution_id'),
                 'designer_id' => $request->input('designer_id'),
                 'product_thumbail' => $thumbnailPath ?? null,
                 'cover_image' => $coverPath ?? null,
+                'product_slug' => strtolower(str_replace(' ', '-',$request->input('product_title'))),
                 'created_by' =>Auth::user()->id,
             ]);
 
@@ -115,16 +123,16 @@ class ProductController extends Controller
             }
 
             // Insert variants
-            $sizes = $request->input('product_zize', []);
-            $colors = $request->input('product_color', []);
+            $sizes = $request->input('product_size_id', []);
+            $colors = $request->input('product_color_id', []);
             $prices = $request->input('product_varient_price', []);
             $fitInfos = $request->input('product_fit_info', []);
 
             for ($i = 0; $i < count($sizes); $i++) {
                 ProductVariant::create([
                     'product_id' => $product->id,
-                    'product_size' => $sizes[$i] ?? null,
-                    'product_color' => $colors[$i] ?? null,
+                    'product_size_id' => $sizes[$i] ?? null,
+                    'product_color_id' => $colors[$i] ?? null,
                     'product_varient_price' => $prices[$i] ?? null,
                     'product_fit_info' => $fitInfos[$i] ?? null,
                 ]);

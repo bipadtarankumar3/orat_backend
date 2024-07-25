@@ -54,6 +54,8 @@ Route::group(['prefix' => 'web', 'as' => 'web.'], function () {
     Route::post('designer_list', [GeneralController::class, 'designer_list']);
 
     Route::get('home_products', [ProductApiController::class, 'home_products']);
+    Route::get('products', [ProductApiController::class, 'products']);
+
     Route::post('login', [WebUserController::class, 'login']);
     Route::post('register', [WebUserController::class, 'register']);
     

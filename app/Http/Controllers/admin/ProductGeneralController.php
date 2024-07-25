@@ -23,6 +23,8 @@ class ProductGeneralController extends Controller
         return view('admin.pages.product.size.size_form');
     }
 
+    
+
     public function add_size(Request $request)
     {
 

@@ -31,6 +31,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['App\Http\
     Route::group(['prefix' => 'product', 'as' => 'product.'], function () {
         Route::get('list', [ProductController::class, 'productList']);
         Route::get('/get-subcategories/{category_id}', [ProductController::class, 'getSubCategories']);
+        Route::get('/get-suboccution/{occution_id}', [ProductController::class, 'getSuboccution']);
         Route::get('add', [ProductController::class, 'addProduct']);
         Route::post('add_product_action', [ProductController::class, 'add_product_action']);
 

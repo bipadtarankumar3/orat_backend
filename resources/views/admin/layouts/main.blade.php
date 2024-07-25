@@ -229,6 +229,28 @@
             }
         });
     });
+    $(document).ready(function() {
+        $('#occution-org').on('change', function() {
+            var occutionId = $(this).val();
+            if (occutionId) {
+                $.ajax({
+                    url: "{{ URL::to('admin/product/get-suboccution') }}/" + occutionId,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        $('#suboccution-org').empty();
+                        $('#suboccution-org').append('<option value="">Select Sub Occution</option>');
+                        $.each(data, function(key, value) {
+                            $('#suboccution-org').append('<option value="' + value.id + '">' + value.title + '</option>');
+                        });
+                    }
+                });
+            } else {
+                $('#subcategory-org').empty();
+                $('#subcategory-org').append('<option value="">Select Sub Category</option>');
+            }
+        });
+    });
 </script>
 
 

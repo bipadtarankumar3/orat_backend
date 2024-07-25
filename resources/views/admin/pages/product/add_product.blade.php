@@ -223,6 +223,31 @@
                                     </select>
                                 </div>
 
+                                <div class="mb-3 col ecommerce-select2-dropdown">
+                                    <label class="form-label mb-1 d-flex justify-content-between align-items-center"
+                                        for="category-org">
+                                        <span>Occution</span>
+
+                                    </label>
+                                    <select id="occution-org" name="occution_id" class="select2 form-select"
+                                        data-placeholder="Select Occution">
+                                        <option value="">Select Occution</option>
+                                        @foreach ($occutions as $occution)
+                                            <option value="{{ $occution->id }}">{{ $occution->title }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="mb-3 col ecommerce-select2-dropdown">
+                                    <label class="form-label mb-1 d-flex justify-content-between align-items-center"
+                                        for="suboccution-org">
+                                        <span>Sub Occution</span>
+                                    </label>
+                                    <select id="suboccution-org" name="sub_occution_id" class="select2 form-select"
+                                        data-placeholder="Select Sub Occution">
+                                        <option value="">Select Sub Occution</option>
+                                    </select>
+                                </div>
+
 
                                 <!-- Status -->
 
@@ -287,7 +312,7 @@
 
                                             <div class="mb-3 col-2">
                                                 <label class="form-label" for="form-repeater-1-1">Choose Size</label>
-                                                <select id="form-repeater-1-1" name="product_zize[]"
+                                                <select id="form-repeater-1-1" name="product_size_id[]"
                                                     class="select2 form-select" data-placeholder="Size">
                                                     <option value="Plese Select">Plese Select</option>
                                                     @foreach ($sizes as $size)
@@ -298,12 +323,12 @@
 
                                             <div class="mb-3 col-2">
                                                 <label class="form-label " for="form-repeater-1-2">Choose Color</label>
-                                                <select id="form-repeater-1-2" name="product_color[]"
+                                                <select id="form-repeater-1-2" name="product_color_id[]"
                                                     class="select2 form-select" data-placeholder="Size">
                                                     <option value="Plese Select">Plese Select</option>
-                                                    <option value="Blue">Blue</option>
-                                                    <option value="Red">Red</option>
-                                                    <option value="Green">Green</option>
+                                                    @foreach ($colors as $color)
+                                                    <option value="{{$color->id}}">{{$color->title}}</option>
+                                                    @endforeach  
                                                 </select>
                                             </div>
                                             <div class="mb-3 col-3">
