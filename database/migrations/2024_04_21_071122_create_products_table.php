@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('product_slug')->nullable();
             $table->text('description')->nullable();
             $table->text('product_thumbail')->nullable();
+            $table->text('product_back_image')->nullable();
             $table->text('cover_image')->nullable();
             $table->text('video_url')->nullable();
           

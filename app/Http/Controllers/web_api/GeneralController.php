@@ -19,6 +19,7 @@ use App\Models\admin\SubCategory;
 use App\Models\admin\Designer;
 use App\Models\admin\ProductColor;
 use App\Models\admin\ProductSize;
+use App\Models\admin\ProductOccution;
 
 class GeneralController extends Controller
 {
@@ -52,6 +53,18 @@ class GeneralController extends Controller
             'success' => true,
             'data' => $Banner,
             'message' => 'Size List'
+        ]);
+
+    }
+    
+    public function ProductOccutionList(){
+  
+        $data = ProductOccution::get();
+
+        return response()->json([
+            'success' => true,
+            'data' => $data,
+            'message' => 'Product Occution List'
         ]);
 
     }

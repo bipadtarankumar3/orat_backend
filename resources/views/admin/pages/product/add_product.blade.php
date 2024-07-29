@@ -52,6 +52,11 @@
                                             placeholder="Product title" name="thumbail_image" aria-label="Product title">
                                     </div>
                                     <div class="col">
+                                        <label class="form-label" for="ecommerce-product-back-thumb-image">Back Thumbail Image</label>
+                                        <input type="file" class="form-control" id="ecommerce-product-back-thumb-image"
+                                            placeholder="Product title" name="product_back_image" aria-label="Product title">
+                                    </div>
+                                    <div class="col">
                                         <label class="form-label" for="ecommerce-product-thumb-image">Cover Image</label>
                                         <input type="file" class="form-control" id="ecommerce-cover-image"
                                             placeholder="Cover Image" name="cover_image" aria-label="Cover Image">

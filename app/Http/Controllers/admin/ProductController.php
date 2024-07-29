@@ -72,6 +72,13 @@ class ProductController extends Controller
                 $thumbnailPath = url('public/uploads/' . $thumbnailName);
             }
 
+            if ($request->hasFile('product_back_image')) {
+                $thumbnailImage = $request->file('product_back_image');
+                $thumbnailName = time() . '_' . $thumbnailImage->getClientOriginalName();
+                $thumbnailImage->move(public_path('uploads'), $thumbnailName);
+                $product_back_imagePath = url('public/uploads/' . $thumbnailName);
+            }
+
             // Handle cover image upload
             if ($request->hasFile('cover_image')) {
                 $coverImage = $request->file('cover_image');
@@ -101,6 +108,7 @@ class ProductController extends Controller
                 'sub_occution_id' => $request->input('sub_occution_id'),
                 'designer_id' => $request->input('designer_id'),
                 'product_thumbail' => $thumbnailPath ?? null,
+                'product_back_image' => $product_back_imagePath ?? null,
                 'cover_image' => $coverPath ?? null,
                 'product_slug' => strtolower(str_replace(' ', '-',$request->input('product_title'))),
                 'created_by' =>Auth::user()->id,

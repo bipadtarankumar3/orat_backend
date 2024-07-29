@@ -31,52 +31,52 @@ class ProductApiController extends Controller
         $query = Product::query();
 
         // Filter by multiple category IDs
-        if ($request->has('category_id')) {
+        if (!empty($request->input('category_id')) && $request->has('category_id')) {
             $categoryIds = explode(',', $request->input('category_id'));
             $query->whereIn('category_id', $categoryIds);
         }
 
         // Filter by subcategory ID
-        if ($request->has('subcategory_id')) {
+        if (!empty($request->input('subcategory_id')) && $request->has('subcategory_id')) {
             $query->where('sub_category_id', $request->input('subcategory_id'));
         }
 
         // Filter by size ID
-        if ($request->has('size_id')) {
+        if (!empty($request->input('size_id')) && $request->has('size_id')) {
             $query->whereHas('variants', function ($q) use ($request) {
                 $q->where('product_size_id', $request->input('size_id'));
             });
         }
 
         // Filter by color ID
-        if ($request->has('color_id')) {
+        if (!empty($request->input('color_id')) && $request->has('color_id')) {
             $query->whereHas('variants', function ($q) use ($request) {
                 $q->where('product_color_id', $request->input('color_id'));
             });
         }
 
         // Filter by occasion ID
-        if ($request->has('occution_id')) {
+        if (!empty($request->input('occution_id')) && $request->has('occution_id')) {
             $query->where('occution_id', $request->input('occution_id'));
         }
 
         // Filter by sub-occasion ID
-        if ($request->has('suboccution_id')) {
+        if (!empty($request->input('suboccution_id')) && $request->has('suboccution_id')) {
             $query->where('sub_occution_id', $request->input('suboccution_id'));
         }
 
         // Filter by price range
-        if ($request->has('min_price') && $request->has('max_price')) {
+        if (!empty($request->input('min_price')) && $request->has('min_price') && $request->has('max_price')) {
             $query->whereBetween('price', [$request->input('min_price'), $request->input('max_price')]);
         }
 
         // Filter by name
-        if ($request->has('name')) {
+        if (!empty($request->input('name')) && $request->has('name')) {
             $query->where('product_title', 'LIKE', '%' . $request->input('name') . '%');
         }
 
         // Sorting
-        if ($request->has('sort_by')) {
+        if (!empty($request->input('sort_by')) && $request->has('sort_by')) {
             $sortBy = $request->input('sort_by');
             switch ($sortBy) {
                 case 'price_asc':
@@ -112,6 +112,15 @@ class ProductApiController extends Controller
         // Get the results
         $products = $query->get();
 
-        return response()->json($products);
+        // Get total count for pagination
+        $total = Product::count();
+
+        return response()->json([
+            'products' => $products,
+            'total' => $total,
+            'offset' => $offset,
+            'limit' => $limit,
+            'hasMore' => ($offset + $limit) < $total,
+        ]);
     }
 }
