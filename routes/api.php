@@ -55,7 +55,9 @@ Route::group(['prefix' => 'web', 'as' => 'web.'], function () {
     Route::post('occassion_list', [GeneralController::class, 'ProductOccutionList']);
 
     Route::get('home_products', [ProductApiController::class, 'home_products']);
+    Route::get('home_products', [ProductApiController::class, 'home_products']);
     Route::get('products', [ProductApiController::class, 'products']);
+    Route::get('single-product/{id}', [ProductApiController::class, 'singleProduct']);
 
     Route::post('login', [WebUserController::class, 'login']);
     Route::post('register', [WebUserController::class, 'register']);

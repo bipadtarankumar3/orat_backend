@@ -123,4 +123,31 @@ class ProductApiController extends Controller
             'hasMore' => ($offset + $limit) < $total,
         ]);
     }
+
+    public function singleProduct(Request $request, $id)
+{
+    // Fetch the product by ID
+    $product = Product::with([
+        'tags',
+        'types',
+        'variants',
+        'images',
+        'category',
+        'subCategory'
+    ])->findOrFail($id);
+
+    // Fetch similar products based on category and subcategory
+    $similarProducts = Product::with(['tags', 'types', 'variants', 'images'])
+        ->where('category_id', $product->category_id)
+        ->where('sub_category_id', $product->sub_category_id)
+        ->where('id', '!=', $product->id)
+        ->limit(10) // Limit to 10 similar products
+        ->get();
+
+    return response()->json([
+        'product' => $product,
+        'similar_products' => $similarProducts,
+    ]);
+}
+
 }
