@@ -124,30 +124,42 @@ class ProductApiController extends Controller
         ]);
     }
 
-    public function singleProduct(Request $request, $id)
-{
-    // Fetch the product by ID
-    $product = Product::with([
-        'tags',
-        'types',
-        'variants',
-        'images',
-        'category',
-        'subCategory'
-    ])->findOrFail($id);
-
-    // Fetch similar products based on category and subcategory
-    $similarProducts = Product::with(['tags', 'types', 'variants', 'images'])
-        ->where('category_id', $product->category_id)
-        ->where('sub_category_id', $product->sub_category_id)
-        ->where('id', '!=', $product->id)
-        ->limit(10) // Limit to 10 similar products
-        ->get();
-
-    return response()->json([
-        'product' => $product,
-        'similar_products' => $similarProducts,
-    ]);
-}
+    public function singleProduct($id)
+    {
+        try {
+            // Fetch the product with relationships
+            $product = Product::with([
+                'tags',
+                'types',
+                'variants',
+                'variants.size', // assuming you have a size relationship in ProductVariant
+                'variants.color', // assuming you have a color relationship in ProductVariant
+                'images',
+                'category',
+                'subCategory',
+                'occasion', // assuming you have an occasion relationship
+                'subOccasion', // assuming you have a sub-occasion relationship
+                'designer' // assuming you have a designer relationship
+            ])->findOrFail($id);
+    
+            // Fetch similar products
+            $similarProducts = Product::where('category_id', $product->category_id)
+                ->where('id', '!=', $product->id)
+                ->limit(5)
+                ->get();
+    
+            return response()->json([
+                'product' => $product,
+                'similar_products' => $similarProducts->isEmpty() ? [] : $similarProducts,
+            ]);
+        } catch (\Exception $e) {
+            // Catch and return any exception with a 500 status code
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
+    }
+    
+    
+    
+    
 
 }
